@@ -1,7 +1,7 @@
 {
   "name": "netease-music",
   "version": "0.0.1",
-  "author": "孙剑锋 <jianfengtheboy@163.com>",
+  "author": "<jianfengtheboy@163.com>",
   "description": "仿网易云音乐客户端",
   "main": "background.js",
   "appId": "com.jianfengtheboy.neteasemusic",
