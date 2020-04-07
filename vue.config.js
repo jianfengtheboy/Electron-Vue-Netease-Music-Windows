@@ -74,6 +74,7 @@ module.exports = {
     }
   },
   chainWebpack: config => {
+    // 压缩图片
     // config.module
     //   .rule('images')
     //   .use('image-webpack-loader')
