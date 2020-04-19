@@ -3,21 +3,43 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:19:03
- * @LastEditTime: 2020-04-18 23:02:34
+ * @LastEditTime: 2020-04-19 19:25:46
  * @Description: Controls
  -->
 <template>
-  <div>
-
-  </div>
+  <a-button-group size="small">
+    <a-button type="primary" @click="back">
+      <a-icon type="left" />
+    </a-button>
+    <a-button type="primary" @click="forward">
+      <a-icon type="right" />
+    </a-button>
+    <a-button type="primary" @click="refresh">
+      <a-icon type="reload" />
+    </a-button>
+  </a-button-group>
 </template>
 
 <script>
-export default {
+import eventBus from '@/utils/eventBus'
 
+export default {
+  methods: {
+    back () {
+      this.$router.go(-1)
+    },
+    forward () {
+      this.$router.go(1)
+    },
+    refresh () {
+      eventBus.$emit('refresh')
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.ant-btn {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 </style>

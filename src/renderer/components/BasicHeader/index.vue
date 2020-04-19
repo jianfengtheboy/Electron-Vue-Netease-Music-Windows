@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:20:17
- * @LastEditTime: 2020-04-19 10:28:23
+ * @LastEditTime: 2020-04-19 20:56:03
  * @Description: 头部组件
  -->
 <template>
@@ -26,7 +26,7 @@
           <div class="item">
             <theme-setting />
           </div>
-          <div class="item" @click="$router.push({path:'/setting'})">
+          <div class="item" @click="$router.push({ path:'/setting' })">
             <a-icon type="setting" class="icon"/>
           </div>
           <div class="item" @click="logout" v-if="userId">退出</div>
