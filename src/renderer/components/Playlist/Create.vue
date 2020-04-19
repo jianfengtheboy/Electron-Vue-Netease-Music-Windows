@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 22:52:23
+ * @LastEditTime: 2020-04-19 23:45:45
  * @Description:
  -->
 <template>
@@ -12,7 +12,7 @@
       <a-input placeholder="请输入新歌单标题" :value="formData.name" @change="onNameChange" />
     </div>
     <div class="input-item">
-      <a-checkbox :value="formData.privacy" @change="onPrivacyChange">设置为隐私歌单</a-checkbox>
+      <a-checkbox :checked="formData.privacy" @change="onPrivacyChange">设置为隐私歌单</a-checkbox>
     </div>
   </div>
 </template>

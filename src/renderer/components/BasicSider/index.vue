@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:25:15
- * @LastEditTime: 2020-04-19 22:33:52
+ * @LastEditTime: 2020-04-19 23:53:08
  * @Description: 侧边栏
  -->
 <template>
@@ -134,6 +134,7 @@ export default {
     /deep/ .ant-btn {
       line-height: 28px;
       height: 28px;
+      margin-right: 10px;
     }
   }
 }
@@ -222,6 +223,7 @@ export default {
   }
   /deep/ .anticon {
     font-size: 16px;
+    vertical-align: middle;
   }
   .ant-menu-item .anticon, .ant-menu-submenu-title .anticon {
     margin-right: 5px;

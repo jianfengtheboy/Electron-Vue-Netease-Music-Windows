@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:24:29
- * @LastEditTime: 2020-04-19 22:43:09
+ * @LastEditTime: 2020-04-19 23:58:18
  * @Description: Created
  -->
 <template>
@@ -26,9 +26,10 @@
               <a-button
                 type="primary"
                 :loading="loading"
-                :disabled="formData.name===''"
+                :disabled="formData.name === ''"
                 @click="createPlaylist"
-              >创建</a-button>
+              >创建
+              </a-button>
               <a-button @click="hide">取消</a-button>
             </div>
           </template>
