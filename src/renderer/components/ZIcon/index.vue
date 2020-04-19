@@ -3,21 +3,31 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 23:05:40
+ * @LastEditTime: 2020-04-19 10:37:05
  * @Description:
  -->
 <template>
-  <div>
-
-  </div>
+  <my-icon :type="`icon-${type}`" />
 </template>
 
 <script>
-export default {
+import { Icon } from 'ant-design-vue'
 
+const iconURL = 'https://at.alicdn.com/t/font_1188071_1m1k6mct6ob.js'
+
+let MyIcon = Icon.createFromIconfontCN({
+  scriptUrl: iconURL
+})
+
+export default {
+  components: {
+    MyIcon
+  },
+  props: {
+    type: {
+      type: String,
+      required: true
+    }
+  }
 }
 </script>
-
-<style>
-
-</style>
