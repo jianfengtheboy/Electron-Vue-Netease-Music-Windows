@@ -3,21 +3,45 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 23:09:34
+ * @LastEditTime: 2020-04-19 23:07:53
  * @Description:
  -->
 <template>
-  <div>
-
-  </div>
+  <span :class="{'disable' : disable}">
+    <a-icon
+      type="heart"
+      theme="filled"
+      style="color:#c62f2f"
+      @click.stop="handleClick(false)"
+      v-if="isLiked"
+    />
+    <a-icon type="heart" theme="outlined" @click.stop="handleClick(true)" v-else />
+  </span>
 </template>
 
 <script>
 export default {
-
+  props: {
+    isLiked: {
+      type: Boolean,
+      default: false
+    },
+    disable: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    handleClick (isLike) {
+      if (this.disable) return
+      this.$emit('heartClick', isLike)
+    }
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.disable {
+  opacity: .5;
+}
 </style>

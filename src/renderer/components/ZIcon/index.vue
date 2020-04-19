@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 10:37:05
- * @Description:
+ * @LastEditTime: 2020-04-19 22:39:28
+ * @Description: icon组件
  -->
 <template>
   <my-icon :type="`icon-${type}`" />
