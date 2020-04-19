@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:20:17
- * @LastEditTime: 2020-04-19 20:56:03
+ * @LastEditTime: 2020-04-19 23:22:32
  * @Description: 头部组件
  -->
 <template>
@@ -225,7 +225,7 @@ export default {
 }
 .user-info-name {
   display: inline-block;
-  max-width: 80px;
+  max-width: 110px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

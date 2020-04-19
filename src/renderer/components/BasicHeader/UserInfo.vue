@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:23:20
- * @LastEditTime: 2020-04-19 19:18:44
+ * @LastEditTime: 2020-04-19 23:28:50
  * @Description: UserInfo
  -->
 <template>
@@ -26,7 +26,7 @@
               >
                 <a-col>
                   <router-link :to="`/user?id=${userInfo.profile.userId}`" class="username">
-                    <img v-lazy="`${userInfo.profile.avatarUrl}?param=50y50`" class="user-avatar" />
+                    <img v-lazy="`${userInfo.profile.avatarUrl}?param=200y200`" class="user-avatar" />
                     <span class="user-info-name">{{userInfo.profile.nickname}}</span>
                     <img src="./../../assets/images/vip.jpg" v-if="userInfo.profile.vipType"  class="img-vip" />
                   </router-link>
@@ -78,7 +78,7 @@
             width="30"
             height="30"
             class="avatar"
-            v-lazy="`${userInfo.profile.avatarUrl}?param=30y30`"
+            v-lazy="`${userInfo.profile.avatarUrl}?param=120y120`"
             :key="userInfo.profile.avatarUrl"
           />
           <span class="header-user-info" :key="userInfo.profile.nickname" :title="userInfo.profile.nickname">
@@ -153,6 +153,7 @@ export default {
   .user-avatar {
     width: 38px;
     height: 38px;
+    margin-right: 8px;
     border-radius: 50%;
   }
   .username {
