@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:04:16
- * @Description:
+ * @LastEditTime: 2020-04-20 22:14:40
+ * @Description: 上传
  */
 const state = {
   remoteVersion: 2,

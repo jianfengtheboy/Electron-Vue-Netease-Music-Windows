@@ -3,10 +3,11 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:03:34
- * @Description:
+ * @LastEditTime: 2020-04-20 22:12:49
+ * @Description: 搜索
  */
 const SAVE_MAX_LENGTH = 10
+
 let search = {
   namespaced: true,
   state: {

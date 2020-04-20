@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:03:18
- * @Description:
+ * @LastEditTime: 2020-04-20 22:13:20
+ * @Description: 播放
  */
 import { playMode, PLAY_HISTORY_MAX_LEN } from './../../config/config'
 import { shuffle } from '@/utils/calculate.js'
@@ -53,6 +53,7 @@ const state = () => ({
   volume: 0.9,
   showDesktoplyric: false
 })
+
 const getters = {
   current_song: state => state.current_play_list[ state.current_song_index ] || {},
   mode: state => state.mode,
@@ -71,6 +72,7 @@ const getters = {
   volume: state => state.volume,
   showDesktoplyric: state => state.showDesktoplyric
 }
+
 const mutations = {
   SET_SHOW_DESKTOP_LYRIC (state, flag) {
     state.showDesktoplyric = flag

@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:04:51
- * @Description:
+ * @LastEditTime: 2020-04-20 22:15:38
+ * @Description: 用户中心
  */
 import Message from 'ant-design-vue/es/message'
 import { login_refresh, logout } from './../../api/login'
@@ -28,6 +28,7 @@ let state = {
   userPlaylists: [], // 用户收藏的歌单
   likedsongIds: [] // 喜欢的歌曲id列表
 }
+
 let getters = {
   hasUserInfo: state => Object.keys(state.userInfo).length > 0,
   userId: state => ((Object.keys(state.userInfo).length > 0) && state.userInfo.profile.userId) || '',
@@ -208,4 +209,10 @@ let actions = {
   }
 }
 
-export default { namespaced: true, state, getters, mutations, actions }
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
+}

@@ -3,10 +3,11 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:04:06
- * @Description:
+ * @LastEditTime: 2020-04-20 22:14:31
+ * @Description: 设置
  */
 import { remote } from 'electron'
+
 let state = {
   downloadSongsFolders: [
     `${remote.app.getPath('music')}`
@@ -30,4 +31,9 @@ let mutations = {
   }
 }
 
-export default { namespaced: true, state, getters, mutations }
+export default {
+  namespaced: true,
+  state,
+  getters,
+  mutations
+}

@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:02:34
- * @Description:
+ * @LastEditTime: 2020-04-20 22:13:41
+ * @Description: 本地音乐
  */
 import { remote } from 'electron'
 import uuid from 'uuid/v1'
@@ -19,6 +19,7 @@ const avatarIcon = 'images/default_album.jpg'
 function isSongInArray (song, arr) {
   return arr.findIndex(item => item.id == song.id) >= 0
 }
+
 export default {
   namespaced: true,
   state: {
