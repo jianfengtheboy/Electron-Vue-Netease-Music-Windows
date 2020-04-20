@@ -3,21 +3,24 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 23:08:09
- * @Description:
+ * @LastEditTime: 2020-04-20 22:40:34
+ * @Description: 请求数据失败组件
  -->
 <template>
-  <div>
-
+  <div class="infinite-error">
+    请求数据失败
+    <a href="javascript:;" @click="$attrs.trigger">重试</a>
   </div>
 </template>
 
 <script>
 export default {
-
 }
 </script>
 
-<style>
-
+<style scoped>
+.infinite-error {
+  margin: 15px 0;
+  text-align: center;
+}
 </style>
