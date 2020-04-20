@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:11:13
- * @Description:
+ * @LastEditTime: 2020-04-20 22:47:20
+ * @Description: loading组件
  -->
 <template>
   <div class="loading-wrapper">
