@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:20:17
- * @LastEditTime: 2020-04-19 23:22:32
+ * @LastEditTime: 2020-04-20 22:22:50
  * @Description: 头部组件
  -->
 <template>
   <div class="top-bar">
     <div class="top-bar-logo">
-      <img src="../../assets/images/logo.svg" alt="网易云音乐">
+      <img src="@/assets/images/logo.svg" alt="网易云音乐">
     </div>
     <div class="top-bar-main">
       <div class="top-bar-control">

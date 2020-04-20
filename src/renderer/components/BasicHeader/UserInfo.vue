@@ -4,7 +4,7 @@
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:23:20
  * @LastEditTime: 2020-04-19 23:28:50
- * @Description: UserInfo
+ * @Description: 用户中心
  -->
 <template>
   <div>
