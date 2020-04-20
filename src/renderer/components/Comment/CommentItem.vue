@@ -4,7 +4,7 @@
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:27:53
  * @LastEditTime: 2020-04-20 21:43:27
- * @Description: CommentItem
+ * @Description: 评论组件
  -->
 <template>
   <a-comment class="comment">
