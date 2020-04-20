@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 22:57:44
- * @Description:
+ * @LastEditTime: 2020-04-20 21:51:55
+ * @Description: video
  */
 import request from '@/utils/request.js'
 
@@ -13,7 +13,6 @@ export function getVideo (groupId) {
   return request.get(`/video/group?id=${id}&_=${new Date().getTime()}`)
 }
 
-// /video/group/list
 export function getVideoCates () {
   return request.get('/video/group/list')
 }
