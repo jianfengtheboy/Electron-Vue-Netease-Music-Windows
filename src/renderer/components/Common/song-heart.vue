@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 23:07:53
- * @Description:
+ * @LastEditTime: 2020-04-20 22:51:11
+ * @Description: 喜欢的歌曲组件
  -->
 <template>
   <span :class="{'disable' : disable}">
