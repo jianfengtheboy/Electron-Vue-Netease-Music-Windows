@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:17:42
- * @Description:
+ * @LastEditTime: 2020-04-20 22:29:50
+ * @Description: 歌曲名
  -->
 <template>
   <span class="songname" :title="getTitle(row, col)">
