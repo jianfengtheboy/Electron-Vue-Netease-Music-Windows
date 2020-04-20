@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:21:19
- * @Description:
+ * @LastEditTime: 2020-04-20 23:06:09
+ * @Description: historyPlayTable组件
  -->
 <template>
   <div class="play-table">

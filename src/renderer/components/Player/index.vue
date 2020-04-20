@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:32:41
- * @Description:
+ * @LastEditTime: 2020-04-20 23:07:07
+ * @Description: 🎵播放器
  -->
 <template>
   <transition name="player">
@@ -13,7 +13,7 @@
         <a-icon type="shrink" class="shrink" @click="shrinkScreen"/>
         <div class="main-top">
           <div class="left">
-            <div class="avatar-wrapper" ref="avatarWrapper" :class="[{'play' : isAddAnimation},{'pause' : !playing},{'has-freq' : showFreq}]">
+            <div class="avatar-wrapper" ref="avatarWrapper" :class="[{'play' : isAddAnimation}, {'pause' : !playing}, {'has-freq' : showFreq}]">
               <img :src="current_song.avatar" class="song-avatar" />
             </div>
             <div class="actions" v-if="current_song">

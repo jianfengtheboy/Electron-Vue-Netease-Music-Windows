@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:38:54
- * @Description:
+ * @LastEditTime: 2020-04-20 23:06:33
+ * @Description: 收藏组件
  -->
 <template>
   <div>

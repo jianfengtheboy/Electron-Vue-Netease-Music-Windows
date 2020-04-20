@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 23:45:45
- * @Description:
+ * @LastEditTime: 2020-04-20 23:07:45
+ * @Description: playlist组件
  -->
 <template>
   <div class="create-playlist-form">
