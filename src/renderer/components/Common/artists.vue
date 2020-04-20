@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 23:06:04
- * @Description:
+ * @LastEditTime: 2020-04-20 22:36:05
+ * @Description: 👨‍🎨艺术家
  -->
 <template>
   <span :title="`艺术家:${artistTitle}`" v-if="artists && artists.length">
