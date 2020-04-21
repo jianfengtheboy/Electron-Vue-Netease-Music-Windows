@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 13:54:58
+ * @LastEditTime: 2020-04-21 18:04:37
  * @Description: 独家放送
  -->
 <template>
@@ -74,6 +74,7 @@ export default {
       top: 0;
       padding: 6px;
       background: rgba(0, 0, 0, .3);
+      font-size: 12px;
       color: #fff;
       transform: translateY(-100%);
       transition: all .3s;
