@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:47:12
+ * @LastEditTime: 2020-04-21 12:52:27
  * @Description: banner
  -->
 <template>

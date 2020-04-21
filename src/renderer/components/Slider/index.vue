@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:10:41
+ * @LastEditTime: 2020-04-21 12:57:46
  * @Description: slider组件
  -->
 <template>
@@ -241,7 +241,7 @@ export default {
         transition: all .5s;
       }
       &.active {
-        transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-50%, 5%, 0);
         filter: brightness(1);
         z-index: 20;
       }
@@ -290,6 +290,7 @@ export default {
   .dots {
     width: 100%;
     height: 20px;
+    padding-top: 12px;
     span {
       display: inline-block;
       width: 20px;

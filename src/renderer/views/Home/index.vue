@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:48:29
+ * @LastEditTime: 2020-04-21 12:53:40
  * @Description: 发现音乐
  -->
 <template>
@@ -146,6 +146,6 @@ export default {
 </style>
 <style lang="less" scoped>
 .floors {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 </style>
