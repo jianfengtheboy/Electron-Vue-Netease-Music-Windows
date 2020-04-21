@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 13:13:28
- * @LastEditTime: 2020-04-21 22:01:32
+ * @LastEditTime: 2020-04-21 23:02:19
  * @Description: vue-lazyload
  */
 import Vue from 'vue'
@@ -13,5 +13,6 @@ Vue.use(VueLazyload, {
   preLoad: 1.3,
   // 使用IntersectionObserver监听
   observer: true,
-  attempt: 1
+  attempt: 1,
+  loading: require('./../assets/images/default.jpg')
 })

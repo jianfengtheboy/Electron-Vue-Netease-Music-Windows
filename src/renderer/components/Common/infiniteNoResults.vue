@@ -3,11 +3,14 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:44:23
+ * @LastEditTime: 2020-04-21 23:00:22
  * @Description: 暂无请求结果组件
  -->
 <template>
-  <div class="no-result">暂无请求结果~</div>
+  <div class="no-result">
+    <img class="no-result-img" src="../../assets/images/noResult.png" alt="" />
+    <div class="no-result-txt">暂无数据~</div>
+  </div>
 </template>
 
 <script>
@@ -16,9 +19,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .no-result {
-  margin: 15px 0;
-  text-align: center;
+  padding-top: 50px;
+  .no-result-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .no-result-txt {
+    margin: 20px 0;
+    text-align: center;
+  }
 }
 </style>

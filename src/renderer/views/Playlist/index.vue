@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 22:20:37
+ * @LastEditTime: 2020-04-21 22:38:54
  * @Description: 歌单
  -->
 <template>
@@ -197,6 +197,8 @@ export default {
       display: inline-block;
       width: 98px;
       border: 1px solid #f3f5f7;
+      margin-top: -1px;
+      margin-right: -1px;
       line-height: 33px;
       text-align: center;
       font-size: 12px;
