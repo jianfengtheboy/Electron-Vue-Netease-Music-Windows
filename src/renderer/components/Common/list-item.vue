@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 13:45:41
+ * @LastEditTime: 2020-04-21 20:39:42
  * @Description: list-item组件
  -->
 <template>
@@ -126,6 +126,8 @@ export default {
     margin: 0;
     color: #fff;
     font-size: 13px;
+    border-radius: 6px;
+    overflow: hidden;
     &:hover {
       .play-icon {
         display: block;

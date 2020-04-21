@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 13:40:48
+ * @LastEditTime: 2020-04-21 20:43:31
  * @Description: 发现音乐
  -->
 <template>
@@ -77,6 +77,10 @@ import { normalMV } from '@/utils/video'
 
 const NAVS = [
   {
+    name: '推荐歌单',
+    key: 'playlist'
+  },
+  {
     name: '独家放送',
     key: 'privateContent',
     hideMore: true
@@ -84,10 +88,6 @@ const NAVS = [
   {
     name: '最新音乐',
     key: 'newSong'
-  },
-  {
-    name: '推荐歌单',
-    key: 'playlist'
   },
   {
     name: '推荐MV',
@@ -104,9 +104,9 @@ export default {
   data () {
     return {
       data: {
+        playlist: [],
         privateContent: [],
         newSong: [],
-        playlist: [],
         mv: [],
         dj: []
       },
@@ -155,17 +155,17 @@ export default {
       this.isRenderFinish = false
       Promise.all([
         getBanner(),
+        getRecommendPlaylist(),
         getPrivateContent(),
         getNewSong(),
-        getRecommendPlaylist(),
         getPersonalizedMV(),
         getDjHot()
       ]).then(
         ([
           { banners },
+          { result: playlist },
           { result: privateContent },
           { result: newSong },
-          { result: playlist },
           { result: mv },
           { djRadios: dj }
         ]) => {
@@ -177,9 +177,9 @@ export default {
             return normalMV(item)
           })
           this.data = {
+            playlist,
             privateContent,
             newSong,
-            playlist,
             mv,
             dj
           }
@@ -245,7 +245,7 @@ export default {
   }
 }
 .flip-list {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .wy-footer {
   display: flex;

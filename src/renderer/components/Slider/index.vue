@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 13:05:24
+ * @LastEditTime: 2020-04-21 20:21:43
  * @Description: slider组件
  -->
 <template>
@@ -207,6 +207,7 @@ export default {
       left: 50%;
       width: 70%;
       height: 100%;
+      border-radius: 10px;
       transition: 0.4s transform ease-out, .35s filter cubic-bezier(0.32, 0.04, 0.87, 0.65);
       background-color: #fff;
       background-repeat: no-repeat;

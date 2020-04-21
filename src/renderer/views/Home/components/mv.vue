@@ -3,21 +3,82 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:45:54
+ * @LastEditTime: 2020-04-21 18:52:47
  * @Description:
  -->
 <template>
-  <div>
-
+  <div class="mv">
+    <ul class="list">
+      <list-item
+        item-type="mv"
+        :ratio="0.56"
+        class="list-item"
+        v-for="item in list"
+        :item="item"
+        :key="item.id"
+      >
+        <div
+          slot="copywriter"
+          class="copywriter"
+          v-if="item.copywriter"
+        >
+          {{item.copywriter}}
+        </div>
+      </list-item>
+    </ul>
   </div>
 </template>
 
 <script>
-export default {
+import listItem from '@/components/Common/list-item'
 
+export default {
+  name: 'mv',
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  components: {
+    listItem
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+@gutter: 1%;
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 -@gutter;
+  .list-item {
+    width: 23%;
+    margin-left: @gutter;
+    margin-right: @gutter;
+    &:hover {
+      /deep/ .top {
+        display: none;
+      }
+      .copywriter {
+        transform: translateY(0);
+      }
+    }
+    .copywriter {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      padding: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      font-size: 12px;
+      color: #fff;
+      transform: translateY(-100%);
+      transition: all 0.3s;
+    }
+  }
+}
 </style>

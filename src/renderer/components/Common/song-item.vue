@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 14:16:51
+ * @LastEditTime: 2020-04-21 20:52:58
  * @Description: 歌曲项组件
  -->
 <template>
@@ -14,11 +14,11 @@
       :key="song.id"
       @click="onClick(tracks,index)"
     >
-      <div class="item-index">{{index > 8 ? index + 1 : '0' + (index + 1)}}</div>
       <div class="item-avatar">
         <img v-lazy="song.avatar" class="avatar">
         <a-icon type="play-circle" class="icon"/>
       </div>
+      <div class="item-index">{{index > 8 ? index + 1 : '0' + (index + 1)}}</div>
       <div class="info">
         <div class="name">
           <span>{{song.name}}</span>
@@ -107,14 +107,17 @@ export default {
       cursor: pointer;
     }
     .item-index {
-      width: 25px;
-      flex: 0 0 25px;
+      width: 36px;
+      flex: 0 0 36px;
+      text-align: center;
     }
     .item-avatar {
       position: relative;
       width: 44px;
       height: 44px;
       flex: 0 0 44px;
+      border-radius: 4px;
+      overflow: hidden;
       .avatar {
         width: 100%;
         height: 100%;
@@ -131,7 +134,6 @@ export default {
     .info {
       flex: 1;
       overflow: hidden;
-      padding-left: 10px;
       color: #000;
       font-size: 13px;
       .name {

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 18:11:34
+ * @LastEditTime: 2020-04-21 20:37:40
  * @Description: 推荐歌单
  -->
 <template>
@@ -81,6 +81,8 @@ export default {
       position: relative;
       padding-top: 100%;
       border: 1px solid #eee;
+      border-radius: 6px;
+      overflow: hidden;
       .info {
         position: absolute;
         left: 0;
