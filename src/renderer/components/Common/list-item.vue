@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 21:38:59
+ * @LastEditTime: 2020-04-21 22:23:18
  * @Description: list-item组件
  -->
 <template>
@@ -173,6 +173,9 @@ export default {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+    }
+    .anticon-user {
+      margin-right: 2px;
     }
   }
   .intro {

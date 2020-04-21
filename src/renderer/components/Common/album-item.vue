@@ -3,12 +3,12 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:32:21
+ * @LastEditTime: 2020-04-21 21:58:24
  * @Description: 专辑项组件
  -->
 <template>
   <router-link tag="li" :to="'/album/'+album.id" class="item">
-    <img v-lazy="`${album.picUrl}?param=150y150`" class="avatar">
+    <img v-lazy="`${album.picUrl}?param=600y600`" class="avatar">
     <div class="name">
       {{album.name}}
     </div>
