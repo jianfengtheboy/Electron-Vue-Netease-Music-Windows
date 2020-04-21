@@ -3,21 +3,52 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:45:44
- * @Description:
+ * @LastEditTime: 2020-04-21 21:17:50
+ * @Description: 主播电台
  -->
 <template>
-  <div>
-
+  <div class="dj">
+    <ul class="list">
+      <dj-item
+        class="list-item"
+        v-for="item in list.slice(0, 6)"
+        :dj="item"
+        :key="item.id"
+        :layout="layout"
+      />
+    </ul>
   </div>
 </template>
 
 <script>
-export default {
+import djItem from '@/components/Common/dj-item'
 
+export default {
+  name: 'dj',
+  props: {
+    list: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    layout: {
+      type: String,
+      default: ''
+    }
+  },
+  components: {
+    djItem
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.list {
+  display: flex;
+  justify-content: space-between;
+  .list-item {
+    width: 15%;
+  }
+}
 </style>

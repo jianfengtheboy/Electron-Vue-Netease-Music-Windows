@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:38:56
+ * @LastEditTime: 2020-04-21 21:20:59
  * @Description: dj项组件
  -->
 <template>
@@ -40,7 +40,7 @@ export default {
   },
   computed: {
     itemCls () {
-      return this.layout == 'horizon' ? 'item horizon' : 'item'
+      return this.layout === 'horizon' ? 'item horizon' : 'item'
     }
   }
 }
@@ -50,7 +50,6 @@ export default {
 .item {
   display: flex;
   flex-direction: column;
-  _margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer;
   &.horizon {
@@ -74,6 +73,8 @@ export default {
     margin: 0;
     color: #fff;
     font-size: 13px;
+    border-radius: 6px;
+    overflow: hidden;
     .avatar {
       position: absolute;
       left: 50%;
@@ -101,6 +102,7 @@ export default {
       bottom: 0;
       padding-right: 30px;
       line-height: 30px;
+      font-size: 12px;
       background: linear-gradient(to top, rgba(0, 0, 0, .5), transparent);
     }
     .bottom {
@@ -113,6 +115,7 @@ export default {
     overflow: hidden;
     .name {
       padding: 4px;
+      font-size: 13px;
     }
   }
 }

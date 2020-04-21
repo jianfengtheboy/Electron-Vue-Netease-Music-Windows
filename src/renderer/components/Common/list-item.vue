@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 20:39:42
+ * @LastEditTime: 2020-04-21 21:38:59
  * @Description: list-item组件
  -->
 <template>
@@ -56,7 +56,7 @@ export default {
     },
     imgParam: {
       type: String,
-      default: '200y200'
+      default: '800y800'
     }
   },
   methods: {
@@ -164,10 +164,10 @@ export default {
     .play-icon {
       display: none;
       position: absolute;
-      right: 5px;
-      bottom: 5px;
-      font-size: 30px;
-      color: rgba(255, 255, 255, 0.5);
+      right: 10px;
+      bottom: 10px;
+      font-size: 24px;
+      color: @primary-color;
     }
     .bottom {
       white-space: nowrap;

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 14:05:56
+ * @LastEditTime: 2020-04-21 21:26:48
  * @Description: 最新音乐
  -->
 <template>
@@ -35,7 +35,7 @@ export default {
   },
   mounted () {
     this.list.forEach(item => {
-      this.tracks.push(normalSong(item.song, '44y44'))
+      this.tracks.push(normalSong(item.song, '176y176'))
     })
   },
   methods: {

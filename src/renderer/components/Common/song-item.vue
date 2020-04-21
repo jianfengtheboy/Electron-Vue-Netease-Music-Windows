@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 20:52:58
+ * @LastEditTime: 2020-04-21 21:36:50
  * @Description: 歌曲项组件
  -->
 <template>
@@ -127,8 +127,8 @@ export default {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 24px;
+        color: @primary-color;
+        font-size: 18px;
       }
     }
     .info {
