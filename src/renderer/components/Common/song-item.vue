@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:52:44
+ * @LastEditTime: 2020-04-21 14:16:51
  * @Description: 歌曲项组件
  -->
 <template>
@@ -26,7 +26,7 @@
           <a-icon type="youtube" class="icon-mv" v-if="song.mvid && showMore"/>
         </div>
         <div v-if="!showMore">
-          <router-link :to="`/mv/${song.mvid}`" title="查看MV" v-if="song.mvid">
+          <router-link :to="`/mv/${song.mvid}`" title="查看MV" v-if="song.mvid" class="check-mv">
             <a-icon type="youtube" class="icon-mv" />
           </router-link>
           <artists :artists="song.artist" @click.native.stop />
@@ -141,6 +141,10 @@ export default {
       }
       small {
         color: #999;
+        padding-left: 4px;
+      }
+      .check-mv {
+        margin-right: 4px;
       }
     }
     .extra-item {

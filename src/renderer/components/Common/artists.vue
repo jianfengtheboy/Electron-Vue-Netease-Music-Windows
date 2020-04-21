@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:36:05
+ * @LastEditTime: 2020-04-21 14:14:45
  * @Description: 👨‍🎨艺术家
  -->
 <template>
@@ -40,7 +40,9 @@ export default {
 
 <style lang="less" scoped>
 .artists {
-  display: inline;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
   a {
     color: #333;
     &:hover {
