@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:23:20
- * @LastEditTime: 2020-04-19 23:28:50
+ * @LastEditTime: 2020-04-21 13:50:05
  * @Description: 用户中心
  -->
 <template>
@@ -127,6 +127,7 @@ export default {
           this.$message.success('签到成功!')
           this.signPoint = res.point
           this.showPoint = true
+          this.refreshData()
         }
       }
     },

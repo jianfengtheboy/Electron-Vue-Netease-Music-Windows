@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:46:20
+ * @LastEditTime: 2020-04-21 13:45:41
  * @Description: list-item组件
  -->
 <template>
@@ -34,12 +34,30 @@
 <script>
 export default {
   props: {
-    layout: { type: String, default: '' },
+    layout: {
+      type: String,
+      default: ''
+    },
     // 图片高宽比
-    ratio: { type: Number, default: 1 },
-    item: { type: Object, default: null },
-    itemType: {},
-    imgParam: { type: String, default: '200y200' }
+    ratio: {
+      type: Number,
+      default: 1
+    },
+    item: {
+      type: Object,
+      default: null
+    },
+    itemType: {
+      type: String,
+      default: 'playlist',
+      validator (value) {
+        return [ 'playlist', 'video', 'mv' ].includes(value)
+      }
+    },
+    imgParam: {
+      type: String,
+      default: '200y200'
+    }
   },
   methods: {
     goRoute () {

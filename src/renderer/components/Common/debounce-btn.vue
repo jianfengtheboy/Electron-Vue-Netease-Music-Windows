@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:37:04
+ * @LastEditTime: 2020-04-21 13:46:19
  * @Description: debounce-btn组件
  -->
 <template>
@@ -20,10 +20,6 @@
 import debounce from 'loadsh/debounce'
 
 export default {
-  data () {
-    return {
-    }
-  },
   methods: {
     handleClick: debounce(function () {
       this.$emit('click')

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:54:37
+ * @LastEditTime: 2020-04-21 13:47:24
  * @Description: tabBar组件
  -->
 <template>
@@ -49,7 +49,10 @@ export default {
         ]
       }
     },
-    showSearch: { type: Boolean, default: true }
+    showSearch: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     onSearch (value) {
