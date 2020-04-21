@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 12:57:46
+ * @LastEditTime: 2020-04-21 13:05:24
  * @Description: slider组件
  -->
 <template>
@@ -290,7 +290,7 @@ export default {
   .dots {
     width: 100%;
     height: 20px;
-    padding-top: 12px;
+    padding-top: 10px;
     span {
       display: inline-block;
       width: 20px;
