@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:06:33
+ * @LastEditTime: 2020-04-22 10:06:22
  * @Description: 收藏组件
  -->
 <template>
@@ -47,7 +47,7 @@
           :key="playlist.id"
           @click="collectToPlaylist(playlist, current_song)"
         >
-          <img v-lazy="`${playlist.coverImgUrl}?param=40y40`" class="avatar" />
+          <img v-lazy="`${playlist.coverImgUrl}?param=160y160`" class="avatar" />
           <div class="info">
             <div class="name">{{ playlist.name }}</div>
             <div class="trackCount">{{ playlist.trackCount }}首音乐</div>

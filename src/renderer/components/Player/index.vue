@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:07:07
+ * @LastEditTime: 2020-04-22 10:29:28
  * @Description: 🎵播放器
  -->
 <template>
@@ -52,7 +52,7 @@
               </div>
             </div>
             <div class="lyric">
-              <span class="pushpin" :class="{'active':fixLyric}" :title="fixLyric?'取消固定':'固定歌词'" @click="toggleFixLyric">
+              <span class="pushpin" :class="{'active': fixLyric}" :title="fixLyric ? '取消固定' : '固定歌词'" @click="toggleFixLyric">
                 <a-icon type="pushpin" />
               </span>
               <a-tooltip placement="left">
@@ -83,7 +83,7 @@
               <h5 class="title">包含这首歌的歌单</h5>
               <ul>
                 <li v-for="playlist in simiPlaylists" :key="playlist.id" class="simi-song" @click="goRoute(playlist)">
-                  <img v-lazy="`${playlist.coverImgUrl}?param=40y40`" class="song-avatar">
+                  <img v-lazy="`${playlist.coverImgUrl}?param=160y160`" class="song-avatar">
                   <div class="song-info">
                     <div class="song-name">{{playlist.name}}</div>
                     <div class="playcount">播放次数: {{ playlist.playCount | toWan }}</div>
@@ -108,7 +108,7 @@
               <ul>
                 <li v-for="user in users" :key="user.userId" class="related-user" @click="goUserRoute(user.userId)">
                   <div class="user-info">
-                    <img v-lazy="user.avatarUrl" class="song-avatar">
+                    <img v-lazy="`${user.avatarUrl}?param=140y140`" class="song-avatar">
                     <div class="username">
                       <span>{{user.nickname}} </span>
                     </div>
@@ -122,7 +122,7 @@
           </div>
         </div>
       </section>
-      <div class="bg-player" :style="'backgroundImage: url('+current_song.avatar+')'" v-if="Object.keys(current_song).length"></div>
+      <div class="bg-player" :style="'backgroundImage: url('+ current_song.avatar +')'" v-if="Object.keys(current_song).length"></div>
     </div>
   </transition>
 </template>
@@ -446,7 +446,7 @@ export default {
       color: rgba(0, 0, 0, 0.5);
       font-size: 22px;
       cursor: pointer;
-      margin-left: 455px;
+      margin-left: 465px;
       border: 1px solid rgba(0,0,0,.05);
     }
     .main-top {
@@ -674,6 +674,7 @@ export default {
             width: 40px;
             height: 40px;
             flex: 0 0 40px;
+            border-radius: 6px;
           }
           .song-info {
             flex: 1;
@@ -684,6 +685,7 @@ export default {
               font-size: 13px;
             }
             .playcount {
+              font-size: 12px;
               color: #999;
             }
           }
@@ -719,6 +721,7 @@ export default {
           .time {
             width: 100px;
             flex: 0 0 100px;
+            font-size: 12px;
             color: #999;
             text-align: right;
           }

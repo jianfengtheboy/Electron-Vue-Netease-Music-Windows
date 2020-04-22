@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-07 13:17:49
- * @LastEditTime: 2020-04-07 13:18:11
+ * @LastEditTime: 2020-04-22 10:13:20
  * @Description: song
  */
 import { getLyric, getSongUrl, getIntelligence } from '@/api/song'
 
 // param图片宽高
-export function normalSong (song, param = '200y200', isFm = false) {
+export function normalSong (song, param = '1200y1200', isFm = false) {
   let avatar = (song.album && (song.album.picUrl || song.album.artist.img1v1Url)) || (song.al && song.al.picUrl) || 'images/default_album.jpg'
   return {
     id: song.id,
