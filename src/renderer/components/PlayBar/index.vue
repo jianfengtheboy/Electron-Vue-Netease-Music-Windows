@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:48:18
- * @LastEditTime: 2020-04-20 21:21:27
+ * @LastEditTime: 2020-04-22 09:53:25
  * @Description: playBar
  -->
 <template>
@@ -631,8 +631,7 @@ export default {
       line-height: 1;
       cursor: pointer;
       .count {
-        font-size: 11px;
-        margin-left: -2px;
+        font-size: 8px;
       }
     }
   }

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:30:19
+ * @LastEditTime: 2020-04-22 09:47:37
  * @Description: track-list组件
  -->
 <template>
@@ -25,8 +25,8 @@
             >
               <span class="col-title">{{ col.title }}</span>
               <span class="sort-icons" v-show="col.sorter">
-                <a-icon type="caret-up" v-if="col.rule===0" :key="col.key" />
-                <a-icon type="caret-down" v-else-if="col.rule===1" :key="col.key" />
+                <a-icon type="caret-up" v-if="col.rule === 0" :key="col.key" />
+                <a-icon type="caret-down" v-else-if="col.rule === 1" :key="col.key" />
                 <span class="col-sorter" v-else :key="col.key">
                   <a-icon type="caret-up" class="col-sorter-up" />
                   <a-icon type="caret-down" class="col-sorter-down" />
@@ -391,7 +391,6 @@ export default {
       })
     },
     download (song) {
-      // this.$set(song, 'isWaitting', true)
       this.$store.dispatch('Download/adddownloadQueue', [song])
     }
   }
@@ -501,7 +500,7 @@ export default {
           }
           &.col-actions {
             justify-content: space-evenly;
-            font-size: 17px;
+            font-size: 15px;
             /deep/ .ant-progress-circle .ant-progress-text {
               padding: 0;
             }
