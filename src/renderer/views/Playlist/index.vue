@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 22:38:54
+ * @LastEditTime: 2020-04-22 08:49:13
  * @Description: 歌单
  -->
 <template>
@@ -22,17 +22,17 @@
           <a-button block @click="fetchAll" style="border-radius: 0;">全部歌单</a-button>
           <div v-for="(val, key) in cates" :key="key" class="cate-area">
             <span class="cate-label">
-              <a-icon type="global" v-if="key==0" />
-              <a-icon type="instagram" v-if="key==1" />
-              <a-icon type="coffee" v-if="key==2" />
-              <a-icon type="smile" v-if="key==3" />
-              <a-icon type="appstore" v-if="key==4" />
+              <a-icon type="global" v-if="key == 0" />
+              <a-icon type="instagram" v-if="key == 1" />
+              <a-icon type="coffee" v-if="key == 2" />
+              <a-icon type="smile" v-if="key == 3" />
+              <a-icon type="appstore" v-if="key == 4" />
               {{categories[key]}}
             </span>
             <span class="cates">
               <span
                 class="cate"
-                :class="{'current' : cate.name==options.cat}"
+                :class="{'current' : cate.name == options.cat}"
                 v-for="(cate, index) in val"
                 :key="`${cate.type}_${index}`"
                 @click="onTagChange(cate)"
