@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 09:26:02
+ * @LastEditTime: 2020-04-22 21:49:44
  * @Description: 歌单详情
  -->
 <template>

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:26:26
- * @LastEditTime: 2020-04-19 23:01:43
+ * @LastEditTime: 2020-04-22 21:51:33
  * @Description: MiniCard
  -->
 <template>
@@ -85,6 +85,7 @@ export default {
   align-items: center;
   width: 100%;
   border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
   background: #fff;
   cursor: pointer;
   transform-origin: left bottom;

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:27:53
- * @LastEditTime: 2020-04-22 10:39:44
+ * @LastEditTime: 2020-04-22 22:02:23
  * @Description: 评论组件
  -->
 <template>
@@ -71,6 +71,9 @@ export default {
 }
 .likedCount {
   margin-left: 2px;
+}
+.comment >>> .ant-comment-inner {
+  padding-bottom: 0;
 }
 .comment a {
   color: #006fe3;

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 09:47:37
+ * @LastEditTime: 2020-04-22 21:57:51
  * @Description: track-list组件
  -->
 <template>
@@ -457,9 +457,6 @@ export default {
       &:not(:last-child) {
         border-right: 1px solid #ddd;
       }
-      &.col-has-sorter:hover {
-        background: #eaeaea;
-      }
     }
   }
   .track-list-body {
@@ -486,7 +483,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         line-height: 32px;
-        font-size: 14px;
+        font-size: 13px;
         .col-item {
           display: flex;
           align-items: center;

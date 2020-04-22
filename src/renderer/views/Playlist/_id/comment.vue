@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 12:33:22
+ * @LastEditTime: 2020-04-22 22:00:54
  * @Description: 评论
  -->
 <template>
@@ -83,5 +83,8 @@ export default {
 }
 .comment a {
   color: #006fe3;
+}
+.comment >>> .ant-comment-inner {
+  padding-bottom: 0;
 }
 </style>
