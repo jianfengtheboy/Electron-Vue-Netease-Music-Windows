@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 22:00:54
+ * @LastEditTime: 2020-04-22 22:28:13
  * @Description: 评论
  -->
 <template>
@@ -24,7 +24,7 @@ import Comment from '@/components/Comment/index.vue'
 import { getPlaylistComment } from '@/api/comment'
 
 export default {
-  name: 'playlist_id_comment',
+  name: 'playlist-id-comment',
   data () {
     return {
       commentData: null,
