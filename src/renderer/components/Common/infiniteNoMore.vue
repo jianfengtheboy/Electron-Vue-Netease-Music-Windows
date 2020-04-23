@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:42:59
+ * @LastEditTime: 2020-04-23 17:32:15
  * @Description: 没有更多组件
  -->
 <template>
@@ -18,7 +18,9 @@ export default {
 
 <style scoped>
 .no-more {
-  margin: 15px 0;
+  font-size: 13px;
+  color: #ccc;
+  margin: 25px 0;
   text-align: center;
 }
 </style>
