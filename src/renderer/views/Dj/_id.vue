@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-23 17:56:51
+ * @LastEditTime: 2020-04-23 18:48:43
  * @Description: 电台详情
  -->
 <template>
