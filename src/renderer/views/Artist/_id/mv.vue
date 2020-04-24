@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 22:08:05
+ * @LastEditTime: 2020-04-24 22:20:21
  * @Description: mv
  -->
 <template>
@@ -30,7 +30,7 @@ import { getArtistMV } from '@/api/artist'
 import { normalMV } from '@/utils/video'
 
 export default {
-  name: 'artist_id_mv',
+  name: 'artist-id-mv',
   data () {
     return {
       mvs: [],
@@ -43,10 +43,9 @@ export default {
     mvItem
   },
   activated () {
-    let { id } = this.$route.params
     this.offset = 0
     this.mvs = []
-    this.infiniteId = id
+    this.infiniteId++
   },
   methods: {
     async loadmore ($state) {
