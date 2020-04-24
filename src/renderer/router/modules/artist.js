@@ -3,8 +3,8 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:59:52
- * @Description: 艺术家👩‍🎨
+ * @LastEditTime: 2020-04-24 20:37:20
+ * @Description: 👩‍🎤歌手👨‍🎤
  */
 let artistRoutes = [
   {

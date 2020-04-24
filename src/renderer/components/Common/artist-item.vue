@@ -3,13 +3,15 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:35:08
- * @Description: 🎨艺术家组件
+ * @LastEditTime: 2020-04-24 20:59:31
+ * @Description: 歌手列表组件
  -->
 <template>
   <router-link tag="li" :to="`/artist/${artist.id}`">
     <figure class="figure">
-      <img v-lazy="`${artist.img1v1Url}?param=360y360`" />
+      <div class="img-box">
+        <img v-lazy="`${artist.img1v1Url}?param=540y540`" />
+      </div>
       <figcaption class="figcaption">{{artist.name}}</figcaption>
     </figure>
   </router-link>
@@ -30,6 +32,10 @@ export default {
 .figure {
   overflow: hidden;
   cursor: pointer;
+  .img-box {
+    border-radius: 6px;
+    overflow: hidden;
+  }
   &:hover {
     img {
       transform: scale3d(1.23,1.23,1.23);

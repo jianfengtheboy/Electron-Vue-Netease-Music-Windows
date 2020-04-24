@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 22:26:52
+ * @LastEditTime: 2020-04-24 21:07:34
  * @Description: tags组件
  -->
 <template>
@@ -12,7 +12,7 @@
       <dt>{{key}}:</dt>
       <dd v-for="(tag, i) in val"
           :key="tag.id"
-          @click="selectTag(tag,index,i)"
+          @click="selectTag(tag, index, i)"
           :class="{'current': currentIndex == `${index}_${i}`}">
         {{tag.name}}
       </dd>
@@ -64,6 +64,12 @@ export default {
       background: @primary-color;
       color: #fff;
       border-radius: 4px;
+      &:hover {
+        color: #fff;
+      }
+    }
+    &:hover {
+      color: @primary-color;
     }
   }
   dt {
