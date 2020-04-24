@@ -3,21 +3,54 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:48:55
- * @Description:
+ * @LastEditTime: 2020-04-24 20:22:25
+ * @Description: 歌曲列表
  -->
 <template>
-  <div>
-
+  <div class="tracks">
+    <track-list :tracks="tracks" @dblclick="play" @download="download" />
   </div>
 </template>
 
 <script>
-export default {
+import { getSongUrl, getLyric } from '@/api/song'
+import TrackList from '@/components/Common/track-list/index.js'
+import Artists from '@/components/Common/artists'
 
+export default {
+  name: 'rank-id-songs',
+  data () {
+    return {
+      songUrl: '',
+      currentTime: 0,
+      buffered: 0
+    }
+  },
+  components: {
+    TrackList,
+    Artists
+  },
+  props: {
+    tracks: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  methods: {
+    async play (tracks, index) {
+      this.$store.dispatch('play/selectPlay', { tracks, index })
+    },
+    download (song) {
+      this.$store.dispatch('Download/download', song)
+    }
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.tracks {
+  margin-top: -1px;
+}
 </style>
