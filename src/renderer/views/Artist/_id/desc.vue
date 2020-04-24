@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 22:42:13
+ * @LastEditTime: 2020-04-24 22:52:39
  * @Description: 歌手详情
  -->
 <template>
@@ -58,10 +58,13 @@ export default {
   padding: 20px;
   dl {
     margin-bottom: 20px;
-  }
-  dd {
-    line-height: 1.4;
-    color: #777;
+    dt {
+      color: #444;
+    }
+    dd {
+      line-height: 1.4;
+      color: #777;
+    }
   }
 }
 </style>
