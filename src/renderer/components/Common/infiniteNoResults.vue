@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 23:00:22
+ * @LastEditTime: 2020-04-24 11:36:29
  * @Description: 暂无请求结果组件
  -->
 <template>
@@ -22,6 +22,7 @@ export default {
 <style lang="less" scoped>
 .no-result {
   padding-top: 50px;
+  text-align: center;
   .no-result-img {
     width: 150px;
     height: 150px;
