@@ -3,12 +3,12 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 11:35:54
+ * @LastEditTime: 2020-04-24 11:37:30
  * @Description: 订阅者
  -->
 <template>
   <div class="sublist">
-    <infiniteNoResults></infiniteNoResults>
+    <infiniteNoResults />
   </div>
 </template>
 
