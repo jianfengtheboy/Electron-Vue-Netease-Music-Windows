@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 22:48:22
+ * @LastEditTime: 2020-04-24 22:11:09
  * @Description: mv-item组件
  -->
 <template>
@@ -56,6 +56,7 @@ export default {
     margin: 0;
     color: #fff;
     font-size: 13px;
+    border-radius: 6px;
     &:hover {
       .play-icon {
         display: block;
@@ -93,7 +94,7 @@ export default {
       right: 5px;
       bottom: 5px;
       font-size: 30px;
-      color: rgba(255, 255, 255, 0.5);
+      color: @primary-color;
     }
     .bottom {
       white-space: nowrap;
