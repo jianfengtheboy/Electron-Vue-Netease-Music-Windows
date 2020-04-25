@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:20:05
+ * @LastEditTime: 2020-04-25 20:20:59
  * @Description: 👤个人信息
  -->
 <template>
@@ -142,7 +142,11 @@ export default {
       this.page = page
     },
     subscribe (t, user) {
-      this.$store.dispatch('User/subscribeUser', { t, userId: user.profile.userId, nickname: user.profile.nickname }).then(res => {
+      this.$store.dispatch('User/subscribeUser', {
+        t,
+        userId: user.profile.userId,
+        nickname: user.profile.nickname
+      }).then(res => {
         if (res.code === 200) {
           if (res.followTimeContent) {
             this.user.profile.followTime = res.followTimeContent
