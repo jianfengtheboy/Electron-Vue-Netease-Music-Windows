@@ -86,14 +86,14 @@ module.exports = {
     //     },
     //     // optipng.enabled: false will disable optipng
     //     optipng: {
-    //       enabled: false,
+    //       enabled: false
     //     },
     //     pngquant: {
     //       quality: [0.65, 0.90],
     //       speed: 4
     //     },
     //     gifsicle: {
-    //       interlaced: false,
+    //       interlaced: false
     //     },
     //     // the webp option will enable WEBP
     //     webp: {
@@ -102,14 +102,14 @@ module.exports = {
     //   })
     //   .end()
     // config
-    //   .plugin("webpack-bundle-analyzer")
-    //   .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin)
-    //   .end();
+    //   .plugin('webpack-bundle-analyzer')
+    //   .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
+    //   .end()
   },
   // 打包输出路径
   outputDir: 'dist/web',
   // 构建时开启多进程处理 babel 编译
-  // parallel: require('os').cpus().length > 1,
+  parallel: require('os').cpus().length > 1,
   css: {
     // 是否使用css分离插件 ExtractTextPlugin
     extract: isProd,
