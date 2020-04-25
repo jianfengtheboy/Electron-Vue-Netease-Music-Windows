@@ -3,17 +3,17 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:15:23
- * @LastEditTime: 2020-04-20 21:48:37
+ * @LastEditTime: 2020-04-25 11:22:51
  * @Description: HomeLayout
  -->
 <template>
   <section class="page-layout">
-    <header class="wy-header">
+    <header class="sun-header">
       <nav>
         <router-link :to="item.href" v-for="(item, index) in topMenus" :key="index">{{item.title}}</router-link>
       </nav>
     </header>
-    <section class="wy-wrapper">
+    <section class="sun-wrapper">
       <slot></slot>
     </section>
     <slot name="footer"></slot>
@@ -60,14 +60,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.wy-wrapper {
+.sun-wrapper {
   position: relative;
   max-width: 1200px;
   padding: 0 20px;
   min-height: calc(100vh - 246px);
   margin: auto;
 }
-.wy-header {
+.sun-header {
   margin: 0 30px;
   border-bottom: 1px solid #e3e2e2;
   text-align: center;

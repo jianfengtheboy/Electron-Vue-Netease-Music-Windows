@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-09 23:13:49
+ * @LastEditTime: 2020-04-25 11:12:58
  * @Description: 路由
  */
 import Vue from 'vue'
@@ -28,6 +28,7 @@ import { ipcRenderer } from 'electron'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

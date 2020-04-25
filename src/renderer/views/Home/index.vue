@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 20:43:31
+ * @LastEditTime: 2020-04-25 11:23:55
  * @Description: 发现音乐
  -->
 <template>
@@ -30,8 +30,8 @@
     <div class="loading-wrapper-center" v-else>
       <loading text="正在为您生成个性化设置..." />
     </div>
-    <footer slot="footer" class="wy-footer">
-      <p class="wy-footer-tips">现在可以根据个人喜好,自由调整首页栏目顺序啦~</p>
+    <footer slot="footer" class="sun-footer">
+      <p class="sun-footer-tips">现在可以根据个人喜好,自由调整首页栏目顺序啦~</p>
       <a-button type="danger" ghost @click="visible = true">调整栏目顺序</a-button>
       <drap-modal centered title="调整栏目顺序" :footer="null" :width="400" :maskClosable="false" v-model="visible">
         <transition-group name="flip-list">
@@ -247,7 +247,7 @@ export default {
 .flip-list {
   margin-top: 30px;
 }
-.wy-footer {
+.sun-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -255,7 +255,7 @@ export default {
   height: 100px;
   margin: auto;
   border-top: 1px solid #eee;
-  .wy-footer-tips {
+  .sun-footer-tips {
     font-size: 12px;
     color: #aaa;
   }
