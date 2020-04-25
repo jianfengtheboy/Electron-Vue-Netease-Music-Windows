@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 10:29:28
+ * @LastEditTime: 2020-04-25 20:51:07
  * @Description: 🎵播放器
  -->
 <template>
@@ -18,8 +18,8 @@
             </div>
             <div class="actions" v-if="current_song">
               <a-button :disabled="!!current_song.folder" @click="_handleLikeSong">
-                  <song-heart :isLiked="isLiked" style="marginRight:4px"/>
-                  <span>喜欢</span>
+                <song-heart :isLiked="isLiked" style="marginRight:4px"/>
+                <span>喜欢</span>
               </a-button>
               <collect-btn />
               <a-button icon="share-alt" :disabled="!!current_song.folder" @click="share">

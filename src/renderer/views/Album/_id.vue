@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 18:29:24
+ * @LastEditTime: 2020-04-25 20:43:36
  * @Description: 专辑详情
  -->
 <template>
@@ -34,10 +34,10 @@
                 </a-button>
               </li>
               <li class="item" @click="share">
-                <a-button size="small" icon="share-alt">分享({{ album.info.shareCount }})</a-button>
+                <a-button size="small" icon="share-alt">分享({{ album.info.shareCount | toWan }})</a-button>
               </li>
               <li class="item">
-                <a-button size="small" icon="download" @click="downloadAll">下载全部({{ album.size }}首)</a-button>
+                <a-button size="small" icon="download" @click="downloadAll">下载全部({{ album.size | toWan }}首)</a-button>
               </li>
             </ul>
             <div>

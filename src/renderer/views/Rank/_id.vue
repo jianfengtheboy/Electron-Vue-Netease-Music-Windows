@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 20:17:01
+ * @LastEditTime: 2020-04-25 20:41:46
  * @Description: 榜单详情
  -->
 <template>
@@ -30,10 +30,10 @@
               </li>
               <li class="item">
                 <a-button size="small" icon="check" @click="subscribe(2, rank)" v-if="rank.subscribed">
-                  已收藏({{rank.subscribedCount}})
+                  已收藏({{rank.subscribedCount | toWan}})
                 </a-button>
                 <a-button size="small" icon="folder-add" @click="subscribe(1, rank)" v-else>
-                  收藏({{rank.subscribedCount}})
+                  收藏({{rank.subscribedCount | toWan}})
                 </a-button>
               </li>
               <li class="item" @click="share">
@@ -54,11 +54,11 @@
         <ul class="action">
           <li>
             <div>歌曲数</div>
-            <strong>{{rank.trackCount}}</strong>
+            <strong>{{rank.trackCount | toWan}}</strong>
           </li>
           <li>
             <div>播放数</div>
-            <strong>{{rank.playCount}}</strong>
+            <strong>{{rank.playCount | toWan}}</strong>
           </li>
         </ul>
       </a-list-item>

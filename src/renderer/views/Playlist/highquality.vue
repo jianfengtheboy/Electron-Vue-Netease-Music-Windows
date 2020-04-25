@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 22:45:20
+ * @LastEditTime: 2020-04-25 20:34:34
  * @Description: 精品歌单
  -->
 <template>
@@ -44,7 +44,7 @@
             <img v-lazy="`${playlist.coverImgUrl}?param=400y400`" />
             <div class="play-count">
               <a-icon type="customer-service" />
-              <span>{{ playlist.playCount | toWan }}</span>
+              <span class="playCount">{{ playlist.playCount | toWan }}</span>
             </div>
             <div class="crown">
               <a-icon type="crown" />
@@ -209,12 +209,15 @@ export default {
       top: 0;
       z-index: 1;
       width: 100%;
-      padding: 0 10px;
+      padding: 0 6px 0 10px;
       background: linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent);
       text-align: right;
       color: #fff;
       line-height: 20px;
       font-size: 11px;
+      .playCount {
+        margin-left: 2px;
+      }
     }
   }
   .info {

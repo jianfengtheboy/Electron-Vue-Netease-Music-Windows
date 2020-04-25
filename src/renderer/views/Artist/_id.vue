@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:31:28
+ * @LastEditTime: 2020-04-25 20:44:05
  * @Description: 👩‍🎤详情👨‍🎤
  -->
 <template>
@@ -16,9 +16,9 @@
             <h1>{{artist.name}}</h1>
           </div>
           <div slot="description" class="desc">
-            <div>单曲数：{{artist.musicSize}}</div>
-            <div>专辑数：{{artist.albumSize}}</div>
-            <div>MV数：{{artist.mvSize}}</div>
+            <div>单曲数：{{artist.musicSize | toWan}}</div>
+            <div>专辑数：{{artist.albumSize | toWan}}</div>
+            <div>MV数：{{artist.mvSize | toWan}}</div>
           </div>
           <img
             v-lazy="`${artist.img1v1Url}?param=800y800`"

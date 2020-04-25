@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:27:53
- * @LastEditTime: 2020-04-22 22:02:23
+ * @LastEditTime: 2020-04-25 20:47:05
  * @Description: 评论组件
  -->
 <template>
@@ -11,7 +11,7 @@
     <template slot="actions">
       <span>
         <a-icon type="like" :theme="comment.liked ? 'filled' : 'outlined'" />
-        <span class="likedCount" v-if="comment.likedCount">({{comment.likedCount}})</span>
+        <span class="likedCount" v-if="comment.likedCount">({{comment.likedCount | toWan}})</span>
       </span>
       <span>分享</span>
       <span>回复</span>

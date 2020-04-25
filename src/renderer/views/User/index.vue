@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:20:59
+ * @LastEditTime: 2020-04-25 20:36:47
  * @Description: 👤个人信息
  -->
 <template>
@@ -37,15 +37,15 @@
             :to="`/user-event?uid=${user.profile.userId}&nickname=${user.profile.nickname}`"
             class="row-item"
           >
-            <strong>{{ user.profile.eventCount }}</strong>
+            <strong>{{ user.profile.eventCount | toWan }}</strong>
             <div>动态</div>
           </router-link>
           <router-link to="/follower" class="row-item">
-            <strong>{{ user.profile.follows }}</strong>
+            <strong>{{ user.profile.follows | toWan }}</strong>
             <div>关注</div>
           </router-link>
           <router-link to="/followed" class="row-item">
-            <strong>{{ user.profile.followeds }}</strong>
+            <strong>{{ user.profile.followeds | toWan }}</strong>
             <div>粉丝</div>
           </router-link>
         </nav>

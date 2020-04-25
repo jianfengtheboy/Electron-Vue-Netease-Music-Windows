@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 21:49:44
+ * @LastEditTime: 2020-04-25 20:30:34
  * @Description: 歌单详情
  -->
 <template>
@@ -32,14 +32,14 @@
               </li>
               <li class="item">
                 <a-button size="small" icon="check" @click="subscribe(2, playlist)" v-if="isLiked">
-                  已收藏({{playlist.subscribedCount}})
+                  已收藏({{playlist.subscribedCount | toWan}})
                 </a-button>
                 <a-button size="small" icon="folder-add" @click="subscribe(1, playlist)" v-else>
-                  收藏({{playlist.subscribedCount}})
+                  收藏({{playlist.subscribedCount | toWan}})
                 </a-button>
               </li>
               <li class="item" @click="share">
-                <a-button size="small" icon="share-alt">分享({{playlist.shareCount}})</a-button>
+                <a-button size="small" icon="share-alt">分享({{playlist.shareCount | toWan}})</a-button>
               </li>
               <li class="item">
                 <a-button size="small" @click="downloadAll">
@@ -74,11 +74,11 @@
         <ul class="action">
           <li>
             <div>歌曲数</div>
-            <strong>{{playlist.trackCount}}</strong>
+            <strong>{{playlist.trackCount | toWan}}</strong>
           </li>
           <li>
             <div>播放数</div>
-            <strong>{{playlist.playCount}}</strong>
+            <strong>{{playlist.playCount | toWan}}</strong>
           </li>
         </ul>
       </a-list-item>

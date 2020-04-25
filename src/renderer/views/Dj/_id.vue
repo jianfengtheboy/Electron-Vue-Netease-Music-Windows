@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-23 18:48:43
+ * @LastEditTime: 2020-04-25 20:38:54
  * @Description: 电台详情
  -->
 <template>
@@ -28,10 +28,10 @@
               </li>
               <li class="item">
                 <a-button size="small" icon="check" @click="subscribe(2, dj)" v-if="dj.subed">
-                  已订阅{{dj.subCount}})
+                  已订阅{{dj.subCount | toWan}})
                 </a-button>
                 <a-button size="small" icon="folder-add" @click="subscribe(1, dj)" v-else>
-                  订阅({{dj.subCount}})
+                  订阅({{dj.subCount | toWan}})
                 </a-button>
               </li>
               <li class="item">

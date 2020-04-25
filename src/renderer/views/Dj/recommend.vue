@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-23 17:47:22
+ * @LastEditTime: 2020-04-25 20:39:14
  * @Description: 推荐电台
  -->
 <template>
@@ -29,8 +29,8 @@
             </div>
             <div class="desc" :title="djRadio.desc">{{ djRadio.desc }}</div>
             <div class="count">
-              <span class="programCount">节目: {{ djRadio.programCount }}</span>
-              <span class="subCount">订阅: {{ djRadio.subCount }}</span>
+              <span class="programCount">节目: {{ djRadio.programCount | toWan }}</span>
+              <span class="subCount">订阅: {{ djRadio.subCount | toWan }}</span>
             </div>
           </div>
         </router-link>
