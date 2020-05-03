@@ -3,21 +3,56 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:55:48
- * @Description:
+ * @LastEditTime: 2020-05-03 18:56:13
  -->
 <template>
-  <div>
-
+  <div class="desktop-lyric">
+    <div class="playing-lyric" ref="lrc">
+        {{current_lyric ? current_lyric : '听见好时光'}}
+      </div>
   </div>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  name: 'DesktopLyric',
+  computed: {
+    ...mapGetters('play', ['current_lyric'])
+  }
 }
 </script>
 
-<style>
-
+<style lang='less' scoped>
+.desktop-lyric {
+  .playing-lyric {
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 1px 1px 5px @primary-color, 1px -1px 3px @primary-color;
+    text-align: center;
+    font-family: "Microsoft JhengHei", "明黑", Arial, Helvetica;
+    line-height: 60px;
+    text-indent: 2px;
+    white-space: nowrap;
+    -webkit-app-region: drag;
+  }
+  .control-wrapper {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .control-box {
+      -webkit-app-region: no-drag;
+      .icon {
+        color: #fff;
+        font-size: 18px;
+        &:hover {
+          cursor: pointer;
+          text-shadow: 1px 1px 5px @primary-color, 1px -1px 3px @primary-color;
+        }
+      }
+    }
+  }
+}
 </style>
