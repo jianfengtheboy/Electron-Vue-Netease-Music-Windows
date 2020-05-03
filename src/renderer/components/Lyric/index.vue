@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:40:38
+ * @LastEditTime: 2020-05-03 18:27:04
  * @Description: 歌词
  -->
 <template>
@@ -47,12 +47,12 @@ export default {
     ...mapGetters('play', ['current_lyric_line'])
   },
   watch: {
-    current_lyric_line (newLine) {
-      const lines = this.$refs.lyricLine
-      const line_HEIGHT = lines[newLine].getBoundingClientRect().height
-      let top = lines[newLine].offsetTop > 0 ? Number(lines[newLine].offsetTop - line_HEIGHT * 3) : 0
-      this.scrollTo(top, 'smooth')
-    }
+    // current_lyric_line (newLine) {
+    //   const lines = this.$refs.lyricLine
+    //   const line_HEIGHT = lines[newLine].getBoundingClientRect().height
+    //   let top = lines[newLine].offsetTop > 0 ? Number(lines[newLine].offsetTop - line_HEIGHT * 3) : 0
+    //   this.scrollTo(top, 'smooth')
+    // }
   },
   methods: {
     scrollTo (top, behavior = 'auto') {
