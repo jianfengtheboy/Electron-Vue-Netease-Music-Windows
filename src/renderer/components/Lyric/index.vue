@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 18:27:04
+ * @LastEditTime: 2020-05-03 20:51:56
  * @Description: 歌词
  -->
 <template>
@@ -39,9 +39,6 @@ export default {
       default: 0
     }
   },
-  data () {
-    return {}
-  },
   computed: {
     ...mapState('play', ['lyric']),
     ...mapGetters('play', ['current_lyric_line'])
@@ -49,9 +46,11 @@ export default {
   watch: {
     // current_lyric_line (newLine) {
     //   const lines = this.$refs.lyricLine
-    //   const line_HEIGHT = lines[newLine].getBoundingClientRect().height
-    //   let top = lines[newLine].offsetTop > 0 ? Number(lines[newLine].offsetTop - line_HEIGHT * 3) : 0
-    //   this.scrollTo(top, 'smooth')
+    //   if (lines && lines.length > 0) {
+    //     const line_HEIGHT = lines[newLine].getBoundingClientRect().height
+    //     let top = lines[newLine].offsetTop > 0 ? Number(lines[newLine].offsetTop - line_HEIGHT * 3) : 0
+    //     this.scrollTo(top, 'smooth')
+    //   }
     // }
   },
   methods: {
