@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:36:47
+ * @LastEditTime: 2020-05-03 21:43:20
  * @Description: 👤个人信息
  -->
 <template>
@@ -49,7 +49,7 @@
             <div>粉丝</div>
           </router-link>
         </nav>
-        <div class="row3">个人介绍: {{ user.profile.description ? user.profile.description : "暂无介绍" }}</div>
+        <div class="row3">个人介绍: {{ user.profile.signature ? user.profile.signature : '暂无介绍'}}</div>
       </div>
     </div>
     <div class="user-detail-playlist">
