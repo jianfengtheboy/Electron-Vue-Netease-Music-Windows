@@ -3,14 +3,14 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 21:18:54
+ * @LastEditTime: 2020-05-03 22:47:53
  * @Description: 歌曲
  -->
 <template>
   <div class="audio" @click="play">
     <playing :playing="playing" v-if="current_song.id === event.song.id && source" />
     <div class="avatar">
-      <img v-lazy="`${event.song.album.picUrl}?param=160y160`" />
+      <img v-lazy="`${event.song.album.picUrl}?param=160y160`" class="album-pic" />
       <a-icon type="play-circle" class="icon" />
     </div>
     <div class="songname">{{ event.song.name }}</div>
@@ -55,19 +55,25 @@ export default {
   padding: 10px;
   height: 100%;
   background: #eee;
+  border-radius: 6px;
   &:hover {
     cursor: pointer;
     background: #ddd;
   }
   .avatar {
     position: relative;
+    .album-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+    }
     .icon {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      font-size: 24px;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.8);
     }
   }
   .songname {

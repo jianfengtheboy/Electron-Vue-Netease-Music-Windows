@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 21:41:12
+ * @LastEditTime: 2020-05-03 22:42:30
  * @Description: 用户动态
  -->
 <template>
@@ -21,7 +21,7 @@
         >
           <div class="event-user-box">
             <router-link :to="`/user?id=${event.user.userId}`" class="avatar">
-              <img v-lazy="`${event.user.avatarUrl}?param=42y42`" class="avatar-img" />
+              <img v-lazy="`${event.user.avatarUrl}?param=168y168`" class="avatar-img" />
             </router-link>
             <div class="intro">
               <div class="username">{{ event.user.nickname }}</div>
@@ -34,9 +34,6 @@
               class="event-info"
               :class="{'video' : Object.keys(event.json)[1] === 'video','song' : ['song', 'album'].includes(Object.keys(event.json)[1]), 'playlist' : Object.keys(event.json)[1] === 'playlist', 'zoom' : event.currentIndex >= 0 && event.currentIndex === currentIndex}"
             >
-              <!-- <div>
-                <a-icon type="arrow-up" /> 收起
-              </div> -->
               <component
                 ref="component"
                 :is="`event-${Object.keys(event.json)[1]}`"
@@ -50,15 +47,15 @@
                 <ul>
                   <li>
                     <a-icon type="like" :class="{'actived' : event.info.liked}" />
-                    <span>({{ event.info.likedCount }})</span>
+                    <span>({{ event.info.likedCount | toWan }})</span>
                   </li>
                   <li>
                     <a-icon type="share-alt" />
-                    <span>({{ event.info.shareCount }})</span>
+                    <span>({{ event.info.shareCount | toWan }})</span>
                   </li>
                   <li @click="getComment(event)">
                     <a-icon type="message" />
-                    <span>({{ event.info.commentCount }})</span>
+                    <span>({{ event.info.commentCount | toWan }})</span>
                   </li>
                 </ul>
               </div>
@@ -292,6 +289,10 @@ export default {
               line-height: 1;
               font-size: 12px;
               cursor: pointer;
+              i {
+                margin-right: 4px;
+                vertical-align: top;
+              }
               &:not(:last-child) {
                 border-right: 1px solid #ddd;
               }
