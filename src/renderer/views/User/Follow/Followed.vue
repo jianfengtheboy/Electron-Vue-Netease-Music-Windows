@@ -3,18 +3,18 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 22:24:50
+ * @LastEditTime: 2020-06-05 00:09:24
  * @Description: 我的粉丝
  -->
 <template>
   <div class="follow">
     <header class="follow-header">
-      <span>我的粉丝</span>
+      <span>{{ nickname ? nickname : '用户' }}的粉丝</span>
     </header>
     <main class="follow-main">
       <a-row type="flex" :gutter="16">
-        <a-col :xl="8" :md="12" v-for="followed in followeds" :key="followed.userId">
-          <router-link class="followed-item" :to="`/user?id=${followed.userId}`">
+        <a-col :xl="8" :md="12" v-for="(followed, index) in followeds" :key="index">
+          <router-link class="followed-item" :to="`/user?id=${followed.userId}&nickname=${followed.nickname}`">
             <div class="avatar">
               <img v-lazy="`${followed.avatarUrl}?param=240y240`" />
             </div>
@@ -34,6 +34,11 @@
           </router-link>
         </a-col>
       </a-row>
+      <infinite-loading
+        :identifier="infiniteId"
+        forceUseInfiniteWrapper=".ant-layout-content"
+        @infinite="getData"
+      />
     </main>
   </div>
 </template>
@@ -47,26 +52,52 @@ export default {
     return {
       followeds: [],
       limit: 30,
-      offset: 0
+      offset: 0,
+      lasttime: -1,
+      nickname: '',
+      infiniteId: +new Date()
     }
   },
   computed: {
     ...mapGetters('User', ['userId'])
   },
-  mounted () {
-    this.getData()
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      vm.followeds = []
+      vm.infiniteId += 1
+      vm.offset = 0
+      vm.nickname = to.query.nickname
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.followeds = []
+    this.infiniteId += 1
+    this.lasttime = -1
+    this.offset = 0
+    next()
+  },
+  created () {
+    this.nickname = this.$route.query.nickname
   },
   methods: {
-    getData () {
-      let { limit, offset, userId } = this
+    async getData ($state) {
+      let uid = this.$route.query.uid || this.userId
       let options = {
-        limit,
-        offset,
-        uid: userId
+        limit: this.limit,
+        offset: this.offset,
+        uid: uid
       }
-      user_followed(options).then(res => {
-        this.followeds = res.followeds
-      })
+      let res = await user_followed(options)
+      if ( res.followeds.length ) {
+        this.followeds.push(...res.followeds)
+      }
+      $state.loaded()
+      if ( res.more ) {
+        this.lasttime = res.lasttime
+        this.offset += this.limit
+      } else {
+        $state.complete()
+      }
     }
   }
 }
@@ -84,7 +115,8 @@ export default {
     height: 50px;
     font-size: 17px;
     color: #555;
-    margin: 0 20px;
+    padding: 0 20px;
+    background-color: #f5f5f7;
     border-bottom: 1px solid #eae9e9;
   }
   .follow-main {
@@ -123,9 +155,10 @@ export default {
         }
         .extra {
           span {
-            margin-right: 6px;
+            margin-right: 8px;
             font-size: 12px;
             i {
+              margin-left: 3px;
               color: #0c73c2;
               font-style: normal;
             }
