@@ -3,25 +3,25 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 22:11:09
+ * @LastEditTime: 2020-06-14 17:03:35
  * @Description: mv-item组件
  -->
 <template>
   <div class="item">
-    <router-link :to="`/mv/${this.mv.id}`" class="info">
-      <img class="avatar" v-lazy="mv.cover">
+    <div class="info" @click="play(mv.id)">
+      <img class="avatar" v-lazy="mv.cover" alt="">
       <div class="top">
-        <z-icon type="shipin"/>
+        <z-icon type="shipin" />
         {{mv.playCount | toWan}}
       </div>
       <div class="bottom" v-if="mv.briefDesc">
         <span>{{mv.briefDesc}}</span>
       </div>
-      <a-icon type="play-circle" class="play-icon"/>
-    </router-link>
+      <a-icon type="play-circle" class="play-icon" />
+    </div>
     <router-link :to="`/mv/${this.mv.id}`" class="name">{{mv.name}}</router-link>
     <div class="artists">
-      <artists :artists="mv.artists"/>
+      <artists :artists="mv.artists" />
     </div>
   </div>
 </template>
@@ -29,8 +29,11 @@
 <script>
 import ZIcon from '@/components/ZIcon'
 import Artists from '@/components/Common/artists'
+import videoPlayer from '@/mixins/videoPlayer'
+const { BrowserWindow } = require('electron').remote
 
 export default {
+  mixins: [videoPlayer],
   props: {
     mv: {
       type: Object

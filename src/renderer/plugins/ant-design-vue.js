@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 13:12:57
- * @LastEditTime: 2020-04-09 13:14:38
+ * @LastEditTime: 2020-06-14 18:19:06
  * @Description: ant-design-vue
  */
 import Vue from 'vue'
@@ -30,6 +30,7 @@ import {
   Layout,
   List,
   LocaleProvider,
+  ConfigProvider,
   message,
   Menu,
   Modal,
@@ -55,8 +56,7 @@ import {
   // version,
   Drawer,
   Skeleton,
-  Comment,
-  ConfigProvider
+  Comment
 } from 'ant-design-vue'
 import Toast from './../components/Toast/toast'
 

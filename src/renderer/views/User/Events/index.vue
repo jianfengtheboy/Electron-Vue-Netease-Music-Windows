@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-05 23:11:39
+ * @LastEditTime: 2020-06-14 17:11:27
  * @Description: 动态
  -->
 <template>
@@ -20,7 +20,7 @@
         >
           <div class="event-user-box">
             <router-link :to="`/user?id=${event.user.userId}`" class="avatar">
-              <img v-lazy="`${event.user.avatarUrl}?param=168y168`" class="avatar-img" />
+              <img v-lazy="`${event.user.avatarUrl}?param=168y168`" class="avatar-img" alt="" />
             </router-link>
             <div class="intro">
               <router-link :to="`/user?id=${event.user.userId}`" class="username">{{ event.user.nickname }}
@@ -124,7 +124,7 @@ export default {
   methods: {
     _getHotTopic () {
       getHotTopic({}).then(res => {
-        console.log(res)
+
       })
     },
     subscribe (t, user) {
@@ -281,6 +281,10 @@ export default {
               line-height: 1;
               font-size: 12px;
               cursor: pointer;
+              i {
+                margin-right: 4px;
+                vertical-align: top;
+              }
               &:not(:last-child) {
                 border-right: 1px solid #ddd;
               }

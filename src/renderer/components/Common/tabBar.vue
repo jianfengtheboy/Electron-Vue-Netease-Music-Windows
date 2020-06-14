@@ -3,13 +3,19 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 13:47:24
+ * @LastEditTime: 2020-06-14 17:43:40
  * @Description: tabBar组件
  -->
 <template>
   <div class="tab-bar">
     <nav class="nav">
-      <router-link :to="{name:tab.name}" v-for="(tab , index) in tabs" :key="index">{{tab.label}}</router-link>
+      <router-link
+        :to="{ name: tab.name }"
+        v-for="(tab , index) in tabs"
+        :key="index"
+      >
+        {{tab.label}}
+      </router-link>
     </nav>
     <div class="tab-bar-extra-content" v-if="showSearch">
       <a-input-search
@@ -89,6 +95,10 @@ export default {
 </style>
 <style lang="less" scoped>
 .tab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: #f5f5f7;
   display: flex;
   justify-content: space-between;
   align-items: center;

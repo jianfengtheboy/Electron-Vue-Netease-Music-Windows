@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 22:41:55
+ * @LastEditTime: 2020-06-14 17:24:40
  * @Description:
  -->
 <template>
@@ -16,7 +16,7 @@
         :lg="3"
         :xl="2"
       >
-        <img v-lazy="`${subscriber.avatarUrl}?param=220y220`" class="avatar">
+        <img v-lazy="`${subscriber.avatarUrl}?param=220y220`" class="avatar" alt="">
         <div>{{ subscriber.nickname }}</div>
       </a-col>
     </a-row>

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 11:12:58
+ * @LastEditTime: 2020-06-14 18:35:08
  * @Description: 路由
  */
 import Vue from 'vue'
@@ -28,7 +28,6 @@ import { ipcRenderer } from 'electron'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   routes: [
     {
       path: '/',
@@ -89,6 +88,13 @@ const router = new Router({
       path: '/update',
       component: function (resolve) {
         require(['@/views/Update/index.vue'], resolve)
+      }
+    },
+    {
+      name: 'localPlayer',
+      path: '/local-player',
+      component: function (resolve) {
+        require(['@/views/Video/player.vue'], resolve)
       }
     }
   ]

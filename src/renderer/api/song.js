@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 21:52:44
+ * @LastEditTime: 2020-06-13 00:07:42
  * @Description: song
  */
 import request from '@/utils/request.js'
@@ -17,10 +17,10 @@ export function getSongUrl (id) {
 }
 
 // 歌曲详情
-export function getSongDetail (id) {
+export function getSongDetail (ids) {
   return request.get('/song/detail', {
     params: {
-      id
+      ids
     }
   })
 }

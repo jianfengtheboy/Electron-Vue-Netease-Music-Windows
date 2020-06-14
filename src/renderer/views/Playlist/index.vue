@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 08:49:13
+ * @LastEditTime: 2020-06-14 17:22:02
  * @Description: 歌单
  -->
 <template>
@@ -50,7 +50,7 @@
       <tags :tags="{ '热门标签': tags }" @change="onTagChange" />
       <ul class="playlists" v-if="playlists.length">
         <router-link tag="li" to="/playlist-highquality" class="list-item">
-          <img class="avatar" src="@/assets/images/playlist-top.png" />
+          <img class="avatar" src="@/assets/images/playlist-top.png" alt="" />
           <div>精品歌单精心推荐,给最懂音乐的你</div>
         </router-link>
         <list-item class="list-item" v-for="item in playlists" :item="item" :key="item.id" />
@@ -74,7 +74,6 @@ import listItem from '@/components/Common/list-item'
 import tags from '@/components/Common/tags'
 import {
   getTopPlaylist,
-  getHighPlaylist,
   getPlaylistCatlist,
   getPlaylistTags
 } from '@/api/playlist'

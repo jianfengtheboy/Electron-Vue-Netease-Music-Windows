@@ -3,18 +3,18 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:48:18
- * @LastEditTime: 2020-04-22 09:53:25
+ * @LastEditTime: 2020-06-14 17:54:27
  * @Description: playBar
  -->
 <template>
   <div class="player">
     <div class="bar1" :class="disableCls">
-      <a-icon type="step-backward" class="step-icon" @click="backward" />
-      <a-icon :type="playIcon" theme="filled" class="play-icon" @click="togglePlay" />
-      <a-icon type="step-forward" class="step-icon" @click="forward" />
+      <a-icon type="step-backward" class="step-icon" @click="backward"/>
+      <a-icon :type="playIcon" theme="filled" class="play-icon" @click="togglePlay"/>
+      <a-icon type="step-forward" class="step-icon" @click="forward"/>
     </div>
     <div class="bar2">
-      <time class="time">{{ currentTime | duration }}</time>
+      <time class="time">{{currentTime | duration}}</time>
       <progress-bar
         :percent="percent"
         :bufferedPercent="bufferedPercent"
@@ -24,11 +24,11 @@
         @virtualBarMove="onVirtualBarMove"
         @virtualBarLeave="onVirtualBarLeave"
       />
-      <time class="time">{{ current_song.duration | duration }}</time>
+      <time class="time">{{current_song.duration | duration}}</time>
     </div>
     <div class="bar3">
       <z-icon :type="mutedIcon" @click.native="onMuted" title="静音" style="cursor: pointer;" />
-      <progress-bar :percent="volume" size="small" @percentChanged="onvolumeChanged" class="bar-volume" />
+      <progress-bar :percent="0.5" size="small" @percentChanged="onvolumeChanged" class="bar-volume" />
       <audio
         crossOrigin="anonymous"
         :id="source"
@@ -43,13 +43,13 @@
       />
     </div>
     <div class="bar4">
-      <z-icon type="tubiao" @click.native="showMusicView" />
+      <z-icon type="tubiao" @click.native="showMusicView"/>
       <a-tooltip :title="modeText">
         <span @click="changeMode">
           <z-icon :type="modeIcon" />
         </span>
       </a-tooltip>
-      <z-icon type="geci" class="lrc" :class="{ 'active' : showDesktoplyric }" @click.native="toggleCurrentLyric" />
+      <z-icon type="geci" class="lrc" :class="{'active' : showDesktoplyric}" @click.native="toggleCurrentLyric"/>
       <span class="count-wrapper" @click="showDrawer">
         <z-icon type="yinleliebiaokuai" />
         <span class="count">{{ current_play_list.length }}</span>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import { playMode } from '@/config/config'
 import { getUrl } from '@/utils/song'
 import { getLyric } from '@/api/song'
@@ -95,7 +95,6 @@ export default {
       playComponent: 'current-play-table',
       autoplay: false,
       isSongReady: false,
-      isFirstPlay: false,
       waiting: false
     }
   },
@@ -106,6 +105,59 @@ export default {
     TrackList,
     HistoryPlayTable,
     CurrentPlayTable
+  },
+  computed: {
+    ...mapState(['play']),
+    ...mapGetters('play', [
+      'mode',
+      'original_play_list',
+      'current_song_index',
+      'current_play_list',
+      'playing',
+      'current_song',
+      'history_play_list',
+      'fullscreen',
+      'current_lyric',
+      'lyric',
+      'source',
+      'volume',
+      'isMuted',
+      'showDesktoplyric'
+    ]),
+    ...mapGetters('App', ['isOnliline']),
+    playIcon () {
+      return this.playing ? 'pause-circle' : 'play-circle'
+    },
+    mutedIcon () {
+      return this.isMuted ? 'muted' : 'no-muted'
+    },
+    modeIcon () {
+      return this.mode === playMode.sequence
+        ? 'liebiaoxunhuan'
+        : this.mode === playMode.loop
+          ? 'danquxunhuan1'
+          : this.mode === playMode.random
+            ? 'suijibofang'
+            : 'FMcollect'
+    },
+    modeText () {
+      return this.mode === playMode.sequence
+        ? '顺序播放'
+        : this.mode === playMode.loop
+          ? '循环播放'
+          : this.mode === playMode.random
+            ? '随机播放'
+            : '心动模式'
+    },
+    percent () {
+      return this.currentTime / this.current_song.duration
+    },
+    bufferedPercent () {
+      return this.buffered / this.current_song.duration
+    },
+    disableCls () {
+      return this.isSongReady ? '' : 'disable'
+    }
   },
   watch: {
     playing (newVal, oldVal) {
@@ -191,81 +243,23 @@ export default {
       }
     }
   },
-  computed: {
-    ...mapState(['play']),
-    ...mapGetters('play', [
-      'mode',
-      'original_play_list',
-      'current_song_index',
-      'current_play_list',
-      'playing',
-      'current_song',
-      'history_play_list',
-      'fullscreen',
-      'current_lyric',
-      'lyric',
-      'source',
-      'volume',
-      'isMuted',
-      'showDesktoplyric'
-    ]),
-    ...mapGetters('App', ['isOnliline']),
-    playIcon () {
-      return this.playing ? 'pause-circle' : 'play-circle'
-    },
-    mutedIcon () {
-      return this.isMuted ? 'muted' : 'no-muted'
-    },
-    modeIcon () {
-      return this.mode === playMode.sequence
-        ? 'liebiaoxunhuan'
-        : this.mode === playMode.loop
-          ? 'danquxunhuan1'
-          : this.mode === playMode.random
-            ? 'suijibofang'
-            : 'FMcollect'
-    },
-    modeText () {
-      return this.mode === playMode.sequence
-        ? '顺序播放'
-        : this.mode === playMode.loop
-          ? '循环播放'
-          : this.mode === playMode.random
-            ? '随机播放'
-            : '心动模式'
-    },
-    percent () {
-      return this.currentTime / this.current_song.duration
-    },
-    bufferedPercent () {
-      return this.buffered / this.current_song.duration
-    },
-    disableCls () {
-      return this.isSongReady ? '' : 'disable'
-    }
-  },
   methods: {
     async handleSongChange (newSong, oldSong) {
       if (!newSong.id || (oldSong && (newSong.id === oldSong.id))) return
       this.isSongReady = false
       if (newSong.folder) { // 如果是本地歌曲
         this.$store.commit('play/SET_SOURCE', newSong.url)
-        this.$refs.audio.src = ''
         this.$refs.audio.src = newSong.url
-        setTimeout(() => {
-          this.$refs.audio.play()
-        }, 20)
+        this.$refs.audio.play()
         this.getLocalLyric(newSong.name)
       } else {
+        this.waiting = true
         this.$refs.audio.pause()
         this.getOnlineSong(newSong).then(songUrl => {
           if (songUrl) {
             this.$store.commit('play/SET_SOURCE', songUrl)
-            this.$refs.audio.src = ''
             this.$refs.audio.src = songUrl
-            setTimeout(() => {
-              this.$refs.audio.play()
-            }, 20)
+            this.$refs.audio.play()
             this.getOnlineLyric(newSong.id)
           } else {
             this.$message.error('暂无资源')
@@ -277,6 +271,8 @@ export default {
         }).catch(error => {
           console.log(`获取歌曲播放链接失败:${error}`)
           this.isSongReady = true
+        }).finally(() => {
+          this.waiting = true
         })
       }
     },
@@ -361,13 +357,17 @@ export default {
     },
     onPlay () {
       this.isSongReady = true
+      this.$store.commit('play/SET_PLAY_STATUS', true)
+      // 设置底部缩略图标题
       let artistStr = this.current_song.artist.length ? this.current_song.artist.map(item => item.name).join(',') : ''
       document.title = `${this.current_song.name} - ${artistStr}`
-      this.$store.commit('play/SET_PLAY_STATUS', true)
+      // 歌词位置同步
       if (this.lyricInstance) {
         this.lyricInstance.seek(this.currentTime * 1000)
       }
+      // 添加本地播放历史
       this.$store.dispatch('play/addHistorySong', this.current_song)
+      // 如果设置静音将音频音量设置为0
       const audio = this.$refs.audio
       this.$nextTick(() => {
         if (this.isMuted) {
@@ -376,9 +376,6 @@ export default {
           audio.volume = this.volume
         }
       })
-    },
-    onReady () {
-      this.isSongReady = true
     },
     onPause () {
       this.$store.commit('play/SET_PLAY_STATUS', false)
@@ -433,7 +430,7 @@ export default {
       this.$store.commit('play/SET_CURRENT_INDEX', index)
     },
     getRandomInt (min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min) // min,max之间的随机数（包含min,max）
     },
     loop () {
       this.$refs.audio.currentTime = 0
@@ -443,7 +440,9 @@ export default {
       }
     },
     forward () {
-      if (!this.isSongReady) return
+      if (!this.isSongReady) {
+        return
+      }
       let list_len = this.current_play_list.length
       let { current_song_index } = this
       current_song_index++
@@ -451,12 +450,11 @@ export default {
         current_song_index = 0
       }
       this.$store.commit('play/SET_CURRENT_INDEX', current_song_index)
-      if (!this.playing) {
-        this.$store.commit('play/SET_PLAY_STATUS', true)
-      }
     },
     backward () {
-      if (!this.isSongReady) return
+      if (!this.isSongReady) {
+        return
+      }
       let list_len = this.current_play_list.length
       let { current_song_index } = this
       if (this.mode === playMode.random) {
@@ -466,16 +464,17 @@ export default {
         if (current_song_index < 0) current_song_index = list_len - 1
       }
       this.$store.commit('play/SET_CURRENT_INDEX', current_song_index)
-      if (!this.playing) {
-        this.$store.commit('play/SET_PLAY_STATUS', true)
-      }
     },
     togglePlay () {
-      if (!this.isSongReady) return
+      if (!this.isSongReady) {
+        return
+      }
       this.$store.commit('play/SET_PLAY_STATUS', !this.playing)
     },
     onpercentChanged (percent) {
-      if (!this.isSongReady) return
+      if (!this.isSongReady) {
+        return
+      }
       this.currentTime = this.$refs.audio.currentTime = this.current_song.duration * percent
       if (!this.playing) {
         this.lyricInstance && this.lyricInstance.stop()
@@ -631,7 +630,7 @@ export default {
       line-height: 1;
       cursor: pointer;
       .count {
-        font-size: 8px;
+        font-size: 11px;
       }
     }
   }

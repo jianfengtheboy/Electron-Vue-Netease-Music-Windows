@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:30:34
+ * @LastEditTime: 2020-06-14 18:52:40
  * @Description: 歌单详情
  -->
 <template>
@@ -17,7 +17,7 @@
           </div>
           <div slot="description">
             <div class="creator">
-              <img class="creator-avatar" v-lazy="`${playlist.creator.avatarUrl}?param=128y128`" />
+              <img class="creator-avatar" v-lazy="`${playlist.creator.avatarUrl}?param=128y128`" alt="" />
               <router-link :to="`/user?id=${playlist.creator.userId}`" class="name">
                 {{playlist.creator.nickname}}
               </router-link>
@@ -69,14 +69,14 @@
             height="200"
             v-lazy="`${playlist.coverImgUrl}?param=800y800`"
             :key="playlist.id"
-          />
+            alt="" />
         </a-list-item-meta>
         <ul class="action">
-          <li>
+          <li class="action-item">
             <div>歌曲数</div>
             <strong>{{playlist.trackCount | toWan}}</strong>
           </li>
-          <li>
+          <li class="action-item">
             <div>播放数</div>
             <strong>{{playlist.playCount | toWan}}</strong>
           </li>
@@ -86,13 +86,14 @@
 
     <tab-bar @search="searchSongs" />
     <keep-alive>
-      <router-view :tracks="songs"/>
+      <router-view :tracks="songs" />
     </keep-alive>
   </div>
 </template>
 
 <script>
 import { getPlaylistDetail } from '@/api/playlist'
+import { getSongDetail } from '@/api/song'
 import TabBar from '@/components/Common/tabBar'
 import Loading from '@/components/Common/loading'
 import ZIcon from '@/components/ZIcon/index.vue'
@@ -140,11 +141,11 @@ export default {
         this.loading = true
         let res = await getPlaylistDetail(id)
         this.playlist = res.playlist
-        this.tracks = res.playlist.tracks.map(track => {
-          return normalSong(track)
-        })
-        this.loading = false
+        let ids = res.playlist.trackIds.map(item => item.id).join(',')
+        let { songs } = await getSongDetail(ids)
+        this.tracks = songs.map(track => normalSong(track))
       } catch (error) {
+      } finally {
         this.loading = false
       }
     },
@@ -228,8 +229,8 @@ export default {
       display: inline-block;
       margin-right: 10px;
     }
-    button {
-      font-size: 13px;
+    .ant-btn {
+      font-size: 12px;
     }
   }
   .tags {
@@ -245,7 +246,8 @@ export default {
     display: flex;
     text-align: right;
     font-size: 12px;
-    li {
+    height: fit-content;
+    .action-item {
       padding: 0 10px;
       margin-top: 12px;
       &:not(:last-child) {

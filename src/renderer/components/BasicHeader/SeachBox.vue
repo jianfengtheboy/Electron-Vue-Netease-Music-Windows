@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:21:12
- * @LastEditTime: 2020-04-19 11:05:47
+ * @LastEditTime: 2020-06-14 16:41:57
  * @Description: 搜索框
  -->
 <template>
   <div>
     <a-popover
-      trigger="focus"
+      trigger="click"
       placement="bottomLeft"
       overlayClassName="search-wrapper"
       :overlayStyle="overlayStyle"
@@ -17,6 +17,7 @@
     >
       <a-input-search
         placeholder="搜索音乐、视频、歌词、电台..."
+        allow-clear
         v-model="keyword"
         class="header-search"
         @search="onSearch"
@@ -68,7 +69,9 @@ import { mapGetters } from 'vuex'
 import playMixin from '@/mixins/Play.js'
 
 export default {
-  mixins: [ playMixin ],
+  mixins: [
+    playMixin
+  ],
   data () {
     let keyword = this.$route.query.keyword || ''
     return {
@@ -84,6 +87,15 @@ export default {
         videos: '视频'
       },
       hots: []
+    }
+  },
+  computed: {
+    ...mapGetters('Search', ['searchHistory']),
+    ...mapGetters('play', ['current_song']),
+    overlayStyle () {
+      return this.keyword && this.suggests
+        ? { width: '200px', top: '50px' }
+        : { width: '440px', top: '50px' }
     }
   },
   created () {
@@ -108,15 +120,6 @@ export default {
           this.hots = res.result.hots
         })
       }
-    }
-  },
-  computed: {
-    ...mapGetters('Search', ['searchHistory']),
-    ...mapGetters('play', ['current_song']),
-    overlayStyle () {
-      return this.keyword && this.suggests
-        ? { width: '200px', top: '50px' }
-        : { width: '440px', top: '50px' }
     }
   },
   methods: {
@@ -163,8 +166,8 @@ export default {
           break
         default:
           let tracks = []
-          suggest.forEach(song => {
-            tracks.push(normalSong(song))
+          suggest.forEach(v => {
+            tracks.push(normalSong(v))
           })
           let song = normalSong(item)
           if (song.id === this.current_song.id) return

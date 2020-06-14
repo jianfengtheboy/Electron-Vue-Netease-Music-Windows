@@ -3,15 +3,15 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 12:48:16
+ * @LastEditTime: 2020-06-14 17:17:12
  * @Description: 进度条
  -->
 <template>
   <div class="progress-bar" ref="progressBar" @click.prevent.stop="progressClick">
-    <div class="progress" ref="progress" :style="{ width : `${progressOffsetWidth}px` }"></div>
-    <div class="buffered" ref="buffered" :style="{ width : `${bufferedOffsetWidth}px` }"></div>
-    <div :class="handleCls" @mousedown="onMouseDown" :style="{ transform : `translateX(${progressbarTranslateX}px)` }">
-      <img src="./../../assets/images/loading.gif" class="progress-waiting" v-if="waiting">
+    <div class="progress" ref="progress" :style="{width : `${progressOffsetWidth}px`}"></div>
+    <div class="buffered" ref="buffered" :style="{width : `${bufferedOffsetWidth}px`}"></div>
+    <div :class="handleCls" @mousedown="onMouseDown" :style="{transform : `translateX(${progressbarTranslateX}px)`}">
+      <img src="./../../assets/images/loading.gif" class="progress-waiting" v-if="waiting" alt="">
       <div class="progress-btn" v-else></div>
     </div>
     <div class="virtual-bar" ref="virtualBar"></div>
@@ -24,8 +24,7 @@ import { debounce } from '@/utils/dom'
 export default {
   name: 'progressBar',
   data () {
-    // 记录鼠标位置，是否按下等信息
-    this.mouse = {}
+    this.mouse = {} // 记录鼠标位置，是否按下等信息
     return {
       bufferedOffsetWidth: 0,
       progressOffsetWidth: 0,
@@ -45,7 +44,7 @@ export default {
       type: String,
       default: 'default',
       validator (value) {
-        return [ 'default', 'small' ].includes(value)
+        return ['default', 'small'].includes(value)
       }
     },
     waiting: {
@@ -58,18 +57,19 @@ export default {
   },
   mounted () {
     this.changeProgressbarWidth(this.percent)
-    let that = this
+    let _this = this
     window.addEventListener('resize', debounce(this.handleResize, 50))
     const virtualBar = this.$refs.virtualBar
     virtualBar.addEventListener('mousemove', debounce(function (e) {
-      const progressBar = that.$refs.progressBar
+      e.stopPropagation()
+      const progressBar = _this.$refs.progressBar
       let pageX = e.pageX
       let diff = pageX - progressBar.getBoundingClientRect().left
       let percent = (diff / progressBar.clientWidth).toFixed(2)
-      that.$emit('virtualBarMove', { pageX, percent })
+      _this.$emit('virtualBarMove', { pageX, percent })
     }, 200))
     virtualBar.addEventListener('mouseleave', debounce(function (e) {
-      that.$emit('virtualBarLeave')
+      _this.$emit('virtualBarLeave')
     }, 200))
   },
   computed: {
@@ -79,7 +79,7 @@ export default {
   },
   watch: {
     percent (newPercent) {
-      if ( newPercent >= 0 && !this.mouse.isDown ) {
+      if (newPercent >= 0 && !this.mouse.isDown) {
         this.changeProgressbarWidth(newPercent)
       }
     },
@@ -99,16 +99,16 @@ export default {
       this.mouse.left = this.$refs.progress.clientWidth
       document.onmousemove = e => {
         e.preventDefault()
-        if ( !this.mouse.isDown ) return
+        if (!this.mouse.isDown) return
         const progressBar = this.$refs.progressBar
         const progress = this.$refs.progress
         const progressBarWidth = progressBar.getBoundingClientRect().width
         this.mouse.moveX = e.pageX
         let diffX = this.mouse.moveX - this.mouse.startX + this.mouse.left
-        if ( diffX < 0 ) {
+        if (diffX < 0) {
           diffX = 0
         }
-        if ( diffX > progressBarWidth ) {
+        if (diffX > progressBarWidth) {
           diffX = progressBarWidth
         }
         this.progressOffsetWidth = diffX
@@ -116,7 +116,7 @@ export default {
         this.$emit('percentChanging', this.calcPercent())
       }
       document.onmouseup = e => {
-        if ( !this.mouse.isDown ) return
+        if (!this.mouse.isDown) return
         this.mouse.isDown = false
         document.onmousemove = null
         this.$emit('percentChanged', this.calcPercent())

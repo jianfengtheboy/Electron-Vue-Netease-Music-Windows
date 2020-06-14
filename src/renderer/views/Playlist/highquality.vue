@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:34:34
+ * @LastEditTime: 2020-06-14 17:24:09
  * @Description: 精品歌单
  -->
 <template>
@@ -41,7 +41,7 @@
       <a-col :xl="8" :md="12" class="playlist-col" v-for="playlist in playlists" :key="playlist.id">
         <router-link class="playlist-item" :to="`/playlist/${playlist.id}`">
           <div class="avatar">
-            <img v-lazy="`${playlist.coverImgUrl}?param=400y400`" />
+            <img v-lazy="`${playlist.coverImgUrl}?param=400y400`" alt="" />
             <div class="play-count">
               <a-icon type="customer-service" />
               <span class="playCount">{{ playlist.playCount | toWan }}</span>

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 21:36:50
+ * @LastEditTime: 2020-06-14 17:40:35
  * @Description: 歌曲项组件
  -->
 <template>
@@ -15,7 +15,7 @@
       @click="onClick(tracks,index)"
     >
       <div class="item-avatar">
-        <img v-lazy="song.avatar" class="avatar">
+        <img v-lazy="song.avatar" class="avatar" alt="">
         <a-icon type="play-circle" class="icon"/>
       </div>
       <div class="item-index">{{index > 8 ? index + 1 : '0' + (index + 1)}}</div>
@@ -26,9 +26,9 @@
           <a-icon type="youtube" class="icon-mv" v-if="song.mvid && showMore"/>
         </div>
         <div v-if="!showMore">
-          <router-link :to="`/mv/${song.mvid}`" title="查看MV" v-if="song.mvid" class="check-mv">
+          <span @click.stop="play(song.mvid)" title="查看MV" style="margin-right: 3px;" v-if="song.mvid">
             <a-icon type="youtube" class="icon-mv" />
-          </router-link>
+          </span>
           <artists :artists="song.artist" @click.native.stop />
         </div>
       </div>
@@ -44,10 +44,12 @@
 </template>
 
 <script>
+import videoPlayer from '@/mixins/videoPlayer'
 import Artists from '@/components/Common/artists'
 
 export default {
   name: 'song-item',
+  mixins: [videoPlayer],
   props: {
     bordered: {
       type: Boolean,

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:07:34
+ * @LastEditTime: 2020-06-14 17:32:58
  * @Description: tags组件
  -->
 <template>
@@ -77,7 +77,7 @@ export default {
     font-weight: 600;
   }
   dd:not(:last-child) {
-    border-right: 1px solid #ddd;
+    margin-right: 4px;
   }
 }
 </style>

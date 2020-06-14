@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-22 22:36:31
+ * @LastEditTime: 2020-06-14 17:24:28
  * @Description: 收藏者
  -->
 <template>
@@ -14,7 +14,7 @@
         v-for="subscriber in subscribers"
         :key="subscriber.userId"
       >
-        <img v-lazy="`${subscriber.avatarUrl}?param=220y220`" class="avatar">
+        <img v-lazy="`${subscriber.avatarUrl}?param=220y220`" class="avatar" alt="">
         <div class="nickname">{{ subscriber.nickname }}</div>
       </router-link>
     </div>

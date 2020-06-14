@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-20 23:01:28
+ * @LastEditTime: 2020-06-14 17:50:04
  * @Description: video-item组件
  -->
 <template>
   <div class="item">
-    <router-link :to="`/${this.video.type}/${this.video.id}`" class="info">
-      <img class="avatar" v-lazy="video.avatar">
+    <div class="info" @click="play(video.id)">
+      <img class="avatar" v-lazy="video.avatar" alt="">
       <div class="top">
         <a-icon type="video-camera" />
         {{video.playTime | toWan}}
@@ -17,27 +17,41 @@
       <div class="bottom">
         <span>{{video.duration | duration}}</span>
       </div>
-      <a-icon type="play-circle" class="play-icon"/>
-    </router-link>
-    <router-link :to="`/${this.video.type}/${this.video.id}`" class="name">{{video.name}}</router-link>
-    <router-link to="/" v-if="video.creator.nickname" class="creator">
-      by {{video.creator.nickname}}
-    </router-link>
-    <div class="creator" v-else>
-      by <router-link v-for="item in video.creator" :key="item.userId" to="/" >{{item.userName}}</router-link>
+      <a-icon type="play-circle" class="play-icon" />
     </div>
+
+    <div class="name" @click="play(video.id)">{{video.name}}</div>
+
+    <template v-if="showCreator">
+      <router-link to="/" v-if="video.creator.nickname" class="creator">
+        by {{video.creator.nickname}}
+      </router-link>
+      <div class="creator" v-else>
+        by <router-link v-for="item in video.creator" :key="item.userId" to="/">{{item.userName}}</router-link>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import ZIcon from '@/components/ZIcon'
 import Artists from '@/components/Common/artists'
+import videoPlayer from '@/mixins/videoPlayer'
+const { BrowserWindow } = require('electron').remote
 
 export default {
+  mixins: [videoPlayer],
   props: {
     video: {
       type: Object
+    },
+    showCreator: {
+      type: Boolean,
+      default: true
     }
+  },
+  created () {
+    this.videoType = 'video'
   },
   components: {
     ZIcon,
@@ -111,7 +125,7 @@ export default {
   }
   .creator {
     color: #999;
-    a{
+    a {
       color: #999;
     }
   }

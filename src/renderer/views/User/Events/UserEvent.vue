@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 22:42:30
+ * @LastEditTime: 2020-06-14 16:54:22
  * @Description: 用户动态
  -->
 <template>
@@ -21,7 +21,7 @@
         >
           <div class="event-user-box">
             <router-link :to="`/user?id=${event.user.userId}`" class="avatar">
-              <img v-lazy="`${event.user.avatarUrl}?param=168y168`" class="avatar-img" />
+              <img v-lazy="`${event.user.avatarUrl}?param=168y168`" class="avatar-img" alt="" />
             </router-link>
             <div class="intro">
               <div class="username">{{ event.user.nickname }}</div>

@@ -3,34 +3,39 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:51:07
+ * @LastEditTime: 2020-06-14 18:11:49
  * @Description: 🎵播放器
  -->
 <template>
   <transition name="player">
     <div class="player" ref="player" v-show="fullscreen">
       <section class="main">
-        <a-icon type="shrink" class="shrink" @click="shrinkScreen"/>
+        <a-icon type="shrink" class="shrink" @click="shrinkScreen" />
         <div class="main-top">
           <div class="left">
-            <div class="avatar-wrapper" ref="avatarWrapper" :class="[{'play' : isAddAnimation}, {'pause' : !playing}, {'has-freq' : showFreq}]">
-              <img :src="current_song.avatar" class="song-avatar" />
+            <div
+              class="avatar-wrapper" ref="avatarWrapper"
+              :class="[{'play' : isAddAnimation}, {'pause' : !playing}, {'has-freq' : showFreq}]"
+            >
+              <img :src="current_song.avatar" class="song-avatar" alt="" />
             </div>
             <div class="actions" v-if="current_song">
               <a-button :disabled="!!current_song.folder" @click="_handleLikeSong">
-                <song-heart :isLiked="isLiked" style="marginRight:4px"/>
+                <song-heart :isLiked="isLiked" style="marginRight:4px" />
                 <span>喜欢</span>
               </a-button>
               <collect-btn />
               <a-button icon="share-alt" :disabled="!!current_song.folder" @click="share">
                 分享
               </a-button>
-              <a-button :disabled="!!current_song.folder || downloadstatus.downloaded" :icon="downloadstatus.icon" @click="download(current_song)">
+              <a-button :disabled="!!current_song.folder || downloadstatus.downloaded"
+                        :icon="downloadstatus.icon"
+                        @click="download(current_song)">
                 {{downloadstatus.text}}
               </a-button>
             </div>
             <div :class="lineCls" v-if="!showFreq">
-              <img src="./../../assets/images/track_line.png">
+              <img src="./../../assets/images/track_line.png" alt="">
             </div>
           </div>
           <div class="right" v-if="Object.keys(current_song).length">
@@ -44,15 +49,21 @@
             <div class="info">
               <div class="album" :title="current_song.album.name" v-if="current_song.album">
                 专辑：
-                <router-link :to="`/album/${current_song.album.id}`" class="value">{{current_song.album.name}}</router-link>
+                <router-link :to="`/album/${current_song.album.id}`" class="value">{{current_song.album.name}}
+                </router-link>
               </div>
               <div class="singer" v-if="current_song.artist">
                 歌手：
-                <artists :artists="current_song.artist"/>
+                <artists :artists="current_song.artist" />
               </div>
             </div>
             <div class="lyric">
-              <span class="pushpin" :class="{'active': fixLyric}" :title="fixLyric ? '取消固定' : '固定歌词'" @click="toggleFixLyric">
+              <span
+                class="pushpin"
+                :class="{'active': fixLyric}"
+                :title="fixLyric ? '取消固定' : '固定歌词'"
+                @click="toggleFixLyric"
+              >
                 <a-icon type="pushpin" />
               </span>
               <a-tooltip placement="left">
@@ -83,7 +94,7 @@
               <h5 class="title">包含这首歌的歌单</h5>
               <ul>
                 <li v-for="playlist in simiPlaylists" :key="playlist.id" class="simi-song" @click="goRoute(playlist)">
-                  <img v-lazy="`${playlist.coverImgUrl}?param=160y160`" class="song-avatar">
+                  <img v-lazy="`${playlist.coverImgUrl}?param=40y40`" class="song-avatar" alt="">
                   <div class="song-info">
                     <div class="song-name">{{playlist.name}}</div>
                     <div class="playcount">播放次数: {{ playlist.playCount | toWan }}</div>
@@ -95,7 +106,7 @@
               <h5 class="title">相似歌曲</h5>
               <ul>
                 <li v-for="(song, index) in simiSongs" :key="song.id" class="simi-song" @click="play(simiSongs, index)">
-                  <img v-lazy="song.avatar" class="song-avatar">
+                  <img v-lazy="song.avatar" class="song-avatar" alt="">
                   <div class="song-info">
                     <div class="song-name">{{song.name}}</div>
                     <artists :artists="song.artist" />
@@ -108,7 +119,7 @@
               <ul>
                 <li v-for="user in users" :key="user.userId" class="related-user" @click="goUserRoute(user.userId)">
                   <div class="user-info">
-                    <img v-lazy="`${user.avatarUrl}?param=140y140`" class="song-avatar">
+                    <img v-lazy="user.avatarUrl" class="song-avatar" alt="">
                     <div class="username">
                       <span>{{user.nickname}} </span>
                     </div>
@@ -122,7 +133,10 @@
           </div>
         </div>
       </section>
-      <div class="bg-player" :style="'backgroundImage: url('+ current_song.avatar +')'" v-if="Object.keys(current_song).length"></div>
+      <div class="bg-player"
+           :style="'backgroundImage: url('+current_song.avatar+')'"
+           v-if="Object.keys(current_song).length">
+      </div>
     </div>
   </transition>
 </template>
@@ -214,7 +228,7 @@ export default {
     fixLyric (newVal) {
       if (!newVal) { // 如果取消了固定歌词,自动滚到当前歌词行
         const lines = this.$refs.lyrics.$refs.lyricLine
-        let top = Number(lines[this.current_lyric_line].offsetTop - LYRIC_LINE_HEIGHT * 3)
+        let top = Number(lines[ this.current_lyric_line ].offsetTop - LYRIC_LINE_HEIGHT * 3)
         this.$refs.lyrics.scrollTo(top, 'smooth')
       }
     },
@@ -233,44 +247,46 @@ export default {
       })
     },
     fullscreen (newVal) {
-      if (newVal) {
-        this.unWatcher_lyric = this.$watch('current_lyric_line', (newLine) => {
-          if (this.fixLyric) return
-          const lines = this.$refs.lyrics.$refs.lyricLine
-          if (lines && lines[newLine]) {
-            let top = lines[newLine].offsetTop > 0 ? Number(lines[newLine].offsetTop - LYRIC_LINE_HEIGHT * 3) : 0
-            this.$refs.lyrics.scrollTo(top, 'smooth')
+      this.$nextTick(() => {
+        if (newVal) {
+          this.unWatcher_lyric = this.$watch('current_lyric_line', (newLine) => {
+            if (this.fixLyric) return
+            const lines = this.$refs.lyrics.$refs.lyricLine
+            if (lines && lines[ newLine ]) {
+              let top = lines[ newLine ].offsetTop > 0 ? Number(lines[ newLine ].offsetTop - LYRIC_LINE_HEIGHT * 3) : 0
+              this.$refs.lyrics.scrollTo(top, 'smooth')
+            }
+          })
+          let img = new Image()
+          img.src = this.current_song.avatar
+          img.onload = () => {
+            this.isAddAnimation = true
           }
-        })
-        let img = new Image()
-        img.src = this.current_song.avatar
-        img.onload = () => {
-          this.isAddAnimation = true
+          this.$nextTick(() => {
+            this.scrollToCurrentLine()
+          })
+          if (this.current_song.folder) return
+          this.offset = 0
+          this.comment = null
+          this.refresh = true
+          this.$nextTick(() => {
+            this.refresh = false
+          })
+          this._getSimiPlaylist(this.current_song.id)
+          this._getSimiSong(this.current_song.id)
+          this._getSongUsers(this.current_song.id)
+        } else {
+          this.isAddAnimation = false
+          this.unWatcher_lyric && this.unWatcher_lyric()
         }
-        this.$nextTick(() => {
-          this.scrollToCurrentLine()
-        })
-        if (this.current_song.folder) return
-        this.offset = 0
-        this.comment = null
-        this.refresh = true
-        this.$nextTick(() => {
-          this.refresh = false
-        })
-        this._getSimiPlaylist(this.current_song.id)
-        this._getSimiSong(this.current_song.id)
-        this._getSongUsers(this.current_song.id)
-      } else {
-        this.isAddAnimation = false
-        this.unWatcher_lyric && this.unWatcher_lyric()
-      }
+      })
     }
   },
   methods: {
     scrollToCurrentLine () {
       const lines = this.$refs.lyrics.$refs.lyricLine
-      if (lines && lines[this.current_lyric_line]) {
-        let top = Number(lines[this.current_lyric_line].offsetTop - LYRIC_LINE_HEIGHT * 3)
+      if (lines && lines[ this.current_lyric_line ]) {
+        let top = Number(lines[ this.current_lyric_line ].offsetTop - LYRIC_LINE_HEIGHT * 3)
         this.$refs.lyrics.scrollTo(top, 'smooth')
       }
     },
@@ -374,7 +390,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@main-width : 1000px;
+@main-width: 1000px;
 .player {
   position: fixed;
   left: 0;
@@ -487,7 +503,7 @@ export default {
           animation-play-state: paused;
           box-sizing: content-box;
           &.has-freq {
-            border: 8px solid rgba(255,255,255, 0);;
+            border: 8px solid rgba(255,255,255, 0);
             background: none;
             .song-avatar {
               margin-top: -6px;
@@ -510,7 +526,7 @@ export default {
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             z-index: -1;
           }
         }
@@ -560,14 +576,14 @@ export default {
         }
         .lyric {
           position: relative;
-          border-right: 1px solid rgba(0,0,0,.05);
+          border-right: 1px solid rgba(0, 0, 0, .05);
           min-height: 330px;
           margin-right: 30px;
           .lyric-control {
             position: absolute;
             right: -35px;
             top: 0;
-            color: rgba(255,255,255,.5);
+            color: rgba(255, 255, 255, .5);
             .backward, .forward {
               background: rgba(0, 0, 0, 0.2);;
               transform: rotate(90deg);
@@ -651,7 +667,7 @@ export default {
       .left {
         flex: 1;
       }
-      .right{
+      .right {
         flex: 0 0 25%;
         width: 25%;
         margin-left: 50px;
