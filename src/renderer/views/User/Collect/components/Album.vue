@@ -3,21 +3,61 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:52:36
- * @Description:
+ * @LastEditTime: 2020-06-14 21:55:41
+ * @Description: 我的收藏--专辑
  -->
 <template>
   <div>
-
+    <ul class="list">
+      <li v-for="album in data" :key="album.id" :lg="6" :xl="4">
+        <album-item :album="album"/>
+      </li>
+    </ul>
+    <infinite-loading @infinite="loadmore" />
   </div>
 </template>
 
 <script>
-export default {
+import AlbumItem from '@/components/Common/album-item'
+import { getSubAlbum } from '@/api/sublist'
 
+export default {
+  data () {
+    return {
+      data: [],
+      params: {
+        limit: 20,
+        offset: 0
+      }
+    }
+  },
+  components: {
+    AlbumItem
+  },
+  methods: {
+    async loadmore ($state) {
+      try {
+        let res = await getSubAlbum(this.params)
+        if (res.data.length) {
+          this.data.push(...res.data)
+          $state.loaded()
+        }
+        if (res.hasMore) {
+          this.params.offset += this.params.limit
+        } else {
+          $state.complete()
+        }
+      } catch (error) {
+        $state.error()
+      }
+    }
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>

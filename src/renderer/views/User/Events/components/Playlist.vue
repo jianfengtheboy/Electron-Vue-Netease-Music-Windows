@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 22:43:43
+ * @LastEditTime: 2020-06-14 21:08:44
  * @Description: 播放列表
  -->
 <template>
   <router-link :to="`/playlist/${event.playlist.id}`" class="playlist">
     <div class="avatar">
-      <img v-lazy="`${event.playlist.coverImgUrl}?param=160y160`" class="album-pic" />
+      <img v-lazy="`${event.playlist.coverImgUrl}?param=160y160`" class="album-pic" alt="" />
     </div>
     <div class="name">{{ event.playlist.name }}</div>
   </router-link>

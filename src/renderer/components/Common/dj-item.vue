@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 21:20:59
+ * @LastEditTime: 2020-06-14 21:43:04
  * @Description: dj项组件
  -->
 <template>
   <router-link tag="li" :to="`/dj/${dj.id}`" :class="itemCls">
     <figure class="info">
-      <img class="avatar" v-lazy="dj.picUrl"/>
+      <img class="avatar" v-lazy="dj.picUrl" alt="" />
       <div class="top">
         {{ dj.category }}
       </div>

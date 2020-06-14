@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 18:59:00
+ * @LastEditTime: 2020-06-14 20:45:20
  -->
 <template>
   <div>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState, mapActions } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import MusicView from '@/components/Common/musicView.vue'
 import LyricList from '@/components/Lyric/index.vue'
 

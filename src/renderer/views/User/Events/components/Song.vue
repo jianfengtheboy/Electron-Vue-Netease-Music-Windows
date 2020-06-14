@@ -3,14 +3,14 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 22:47:53
+ * @LastEditTime: 2020-06-14 21:08:51
  * @Description: 歌曲
  -->
 <template>
   <div class="audio" @click="play">
     <playing :playing="playing" v-if="current_song.id === event.song.id && source" />
     <div class="avatar">
-      <img v-lazy="`${event.song.album.picUrl}?param=160y160`" class="album-pic" />
+      <img v-lazy="`${event.song.album.picUrl}?param=160y160`" class="album-pic" alt="" />
       <a-icon type="play-circle" class="icon" />
     </div>
     <div class="songname">{{ event.song.name }}</div>

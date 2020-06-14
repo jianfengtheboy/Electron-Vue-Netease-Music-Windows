@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-21 22:23:18
+ * @LastEditTime: 2020-06-14 21:43:31
  * @Description: list-item组件
  -->
 <template>
@@ -12,6 +12,7 @@
       <img
         class="avatar"
         v-lazy="`${item.picUrl || item.imgurl16v9 || item.cover || item.coverUrl}?param=${imgParam}`"
+        alt=""
       />
       <div class="top" v-if="item.playCount || item.playTime">
         <a-icon type="customer-service" />

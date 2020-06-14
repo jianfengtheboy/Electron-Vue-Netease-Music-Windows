@@ -3,14 +3,14 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 20:59:31
+ * @LastEditTime: 2020-06-14 21:42:07
  * @Description: 歌手列表组件
  -->
 <template>
   <router-link tag="li" :to="`/artist/${artist.id}`">
     <figure class="figure">
       <div class="img-box">
-        <img v-lazy="`${artist.img1v1Url}?param=540y540`" />
+        <img v-lazy="`${artist.img1v1Url}?param=540y540`" alt="" />
       </div>
       <figcaption class="figcaption">{{artist.name}}</figcaption>
     </figure>

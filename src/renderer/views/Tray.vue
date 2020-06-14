@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 19:01:37
+ * @LastEditTime: 2020-06-14 20:43:03
  -->
 <template>
   <div class="tray">
@@ -67,7 +67,6 @@
 import { mapGetters, mapState } from 'vuex'
 import ZIcon from '@/components/ZIcon'
 import ProgressBar from '@/components/Common/progressBar'
-import ls from 'store'
 import { playMode } from '@/config/config'
 
 export default {

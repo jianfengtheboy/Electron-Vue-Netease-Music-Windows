@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:54:20
+ * @LastEditTime: 2020-06-14 21:07:23
  * @Description:
  -->
 <template>
@@ -18,6 +18,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 
 </style>

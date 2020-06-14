@@ -3,19 +3,24 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-04 23:27:22
+ * @LastEditTime: 2020-06-14 21:03:45
  * @Description: 👤个人信息
  -->
 <template>
   <div class="user-detail" v-if="user">
     <div class="user-detail-info">
       <div class="avatar-box">
-        <img v-lazy="`${user.profile.avatarUrl}?param=800y800`" class="avatar-img" :key="user.profile.avatarUrl" />
+        <img
+          v-lazy="`${user.profile.avatarUrl}?param=800y800`"
+          class="avatar-img"
+          :key="user.profile.avatarUrl"
+          alt=""
+        />
       </div>
       <div class="intro-box">
         <div class="row1">
           <span class="nickname">{{user.profile.nickname}}</span>
-          <img src="./../../assets/images/vip.jpg" v-if="user.profile.vipType" class="img-vip" />
+          <img src="./../../assets/images/vip.jpg" v-if="user.profile.vipType" class="img-vip" alt="" />
           <span class="level">
             <z-icon type="Lv" />
             <i>.{{ user.level }}</i>
@@ -63,7 +68,7 @@
       <ul>
         <li v-for="(playlist) in list" :key="playlist.id" class="list-item">
           <router-link :to="`/playlist/${playlist.id}`" class="playlist">
-            <img v-lazy="`${playlist.coverImgUrl}?param=168y168`" class="avatar" />
+            <img v-lazy="`${playlist.coverImgUrl}?param=168y168`" class="avatar" alt="" />
             <div class="name">{{ playlist.name }}</div>
             <div class="track-count">歌曲: {{ playlist.trackCount | toWan }}首</div>
             <div class="nickname">
@@ -97,7 +102,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import { user_detail, getUserPlaylist } from '@/api/user'
 import ZIcon from '@/components/ZIcon/index.vue'
 

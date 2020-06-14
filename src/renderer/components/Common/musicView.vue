@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-19 22:38:55
+ * @LastEditTime: 2020-06-14 21:43:50
  * @Description: musicView组件
  -->
 <template>
@@ -15,6 +15,7 @@
         :src="`${current_song.avatar}`"
         class="avatar"
         :class="{'paused' : !playing}"
+        alt=""
       />
     </div>
   </div>

@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 22:46:32
+ * @LastEditTime: 2020-06-14 21:08:37
  * @Description: 专辑
  -->
 <template>
   <div class="album" @click="onClick">
     <div class="avatar">
-      <img v-lazy="`${event.album.picUrl}?param=160y160`" class="album-pic" />
+      <img v-lazy="`${event.album.picUrl}?param=160y160`" class="album-pic" alt="" />
       <a-icon type="play-circle" class="icon" />
     </div>
     <div class="songname">专辑: {{ event.album.name }}</div>

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-05 00:07:45
+ * @LastEditTime: 2020-06-14 21:05:23
  * @Description: 我的关注
  -->
 <template>
@@ -16,7 +16,7 @@
         <a-col :xl="8" :md="12" v-for="(follower, index) in followers" :key="index">
           <router-link class="follower-item" :to="`/user?id=${follower.userId}&nickname=${follower.nickname}`">
             <div class="avatar">
-              <img v-lazy="`${follower.avatarUrl}?param=240y240`" />
+              <img v-lazy="`${follower.avatarUrl}?param=240y240`" alt="" />
             </div>
 
             <div class="info">

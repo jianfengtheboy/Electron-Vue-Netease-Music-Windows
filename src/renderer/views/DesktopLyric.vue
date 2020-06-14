@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-05-03 18:56:13
+ * @LastEditTime: 2020-06-14 20:46:01
  -->
 <template>
   <div class="desktop-lyric">
     <div class="playing-lyric" ref="lrc">
-        {{current_lyric ? current_lyric : '听见好时光'}}
-      </div>
+      {{current_lyric ? current_lyric : '听见好时光'}}
+    </div>
   </div>
 </template>
 
