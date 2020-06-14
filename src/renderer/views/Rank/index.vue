@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 12:12:54
+ * @LastEditTime: 2020-06-14 22:12:56
  * @Description: 排行榜
  -->
 <template>
@@ -59,7 +59,7 @@
         <a-col :xl="4" :lg="6" class="rank-col" v-for="item in rest" :key="item.id">
           <router-link class="rank-item" :to="`/rank/${item.id}`">
             <div class="avatar">
-              <img v-lazy="`${item.coverImgUrl}?param=720y720`" />
+              <img v-lazy="`${item.coverImgUrl}?param=720y720`" alt="" />
               <div class="top">
                 <a-icon type="customer-service" />
                 {{ item.playCount | toWan }}

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:41:46
+ * @LastEditTime: 2020-06-14 22:13:28
  * @Description: 榜单详情
  -->
 <template>
@@ -49,7 +49,15 @@
               <span v-else>无</span>
             </div>
           </div>
-          <img class="rank-avatar" slot="avatar" width="200" height="200" v-lazy="`${rank.coverImgUrl}?param=800y800`" :key="rank.id" />
+          <img
+            class="rank-avatar"
+            slot="avatar"
+            width="200"
+            height="200"
+            v-lazy="`${rank.coverImgUrl}?param=800y800`"
+            :key="rank.id"
+            alt=""
+          />
         </a-list-item-meta>
         <ul class="action">
           <li>
