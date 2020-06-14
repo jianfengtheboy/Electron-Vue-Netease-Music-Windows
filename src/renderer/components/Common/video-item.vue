@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-14 17:50:04
+ * @LastEditTime: 2020-06-14 23:14:22
  * @Description: video-item组件
  -->
 <template>
@@ -73,6 +73,7 @@ export default {
     margin: 0;
     color: #fff;
     font-size: 13px;
+    border-radius: 6px;
     &:hover {
       .play-icon {
         display: block;
