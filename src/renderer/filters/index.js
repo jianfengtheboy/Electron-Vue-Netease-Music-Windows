@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 13:07:30
- * @LastEditTime: 2020-04-09 13:07:54
+ * @LastEditTime: 2020-06-15 22:39:29
  * @Description: 自定义过滤器
  */
 import Vue from 'vue'
@@ -20,7 +20,10 @@ Vue.filter('NumberFormat', function (value) {
 })
 
 Vue.filter('toWan', function (num) {
-  return num >= 10000 ? (num / 10000).toFixed(1) + '万' : num
+  const k = 10000
+  const sizes = ['', '万', '亿', '万亿']
+  let i = Math.floor(Math.log(num) / Math.log(k))
+  return num >= k ? (num / Math.pow(k, i)).toFixed(1) + sizes[i] : num
 })
 
 Vue.filter('moment', function (dataStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
