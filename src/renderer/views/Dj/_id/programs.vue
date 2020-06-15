@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-23 18:18:23
+ * @LastEditTime: 2020-06-15 22:07:47
  * @Description: 节目
  -->
 <template>
@@ -18,7 +18,7 @@
     >
       <template slot="name" slot-scope="{ row }">
         <div class="program">
-          <img v-lazy="`${row.avatar}?param=160y160`" class="avatar" />
+          <img v-lazy="`${row.avatar}?param=160y160`" class="avatar" alt="" />
           <span>{{ row.name }}</span>
         </div>
       </template>
@@ -93,7 +93,7 @@ export default {
         offset: this.offset,
         asc: this.asc
       }
-      let { programs, more, count } = await getDjProgram(options)
+      let { programs, count } = await getDjProgram(options)
       this.total = count
       let arr = []
       programs.forEach(program => {

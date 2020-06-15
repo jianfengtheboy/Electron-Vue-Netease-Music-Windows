@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:38:42
+ * @LastEditTime: 2020-06-15 22:03:26
  * @Description: 热门歌曲
  -->
 <template>
@@ -18,12 +18,10 @@
 </template>
 
 <script>
-import { getSongUrl, getLyric } from '@/api/song'
 import { normalSong } from '@/utils/song'
 import { getArtistSongs } from '@/api/artist'
 import TrackList from '@/components/Common/track-list/index.js'
 import Artists from '@/components/Common/artists'
-import { setTimeout } from 'timers'
 
 export default {
   name: 'artist-id-songs',

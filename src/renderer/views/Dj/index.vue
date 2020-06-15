@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-23 16:47:06
+ * @LastEditTime: 2020-06-15 22:05:10
  * @Description: 主播电台
  -->
 <template>
@@ -22,7 +22,7 @@
             :key="item.id"
           >
             <div class="icon">
-              <img :src="item.picMacUrl" class="img" />
+              <img :src="item.picMacUrl" class="img" alt="" />
             </div>
             <div class="name">{{item.name}}</div>
           </router-link>
@@ -41,7 +41,7 @@
             :key="index"
           >
             <div class="icon">
-              <img class="avatar" v-lazy="`${item.picUrl}?param=720y720`" :key="item.picUrl" />
+              <img class="avatar" v-lazy="`${item.picUrl}?param=720y720`" :key="item.picUrl" alt="" />
               <a-icon type="play-circle" class="play-icon" />
             </div>
             <div class="name">
@@ -69,7 +69,7 @@
               :key="index"
             >
               <div class="icon">
-                <img class="avatar" v-lazy="`${item.picUrl}?param=720y720`" :key="item.picUrl" />
+                <img class="avatar" v-lazy="`${item.picUrl}?param=720y720`" :key="item.picUrl" alt="" />
                 <a-icon type="play-circle" class="play-icon" />
               </div>
               <div class="name">
@@ -91,9 +91,6 @@ import {
   getDjBanner,
   getDjCatelist,
   getDjRecommend,
-  getDjCatelistRecommend,
-  getDjPerfered,
-  getProgramRecommend,
   getDjByCate
 } from '@/api/dj'
 

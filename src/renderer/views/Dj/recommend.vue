@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:39:14
+ * @LastEditTime: 2020-06-15 22:04:25
  * @Description: 推荐电台
  -->
 <template>
@@ -21,7 +21,7 @@
       >
         <router-link class="dj-item" :to="`/dj/${djRadio.id}`">
           <div class="avatar">
-            <img v-lazy="`${djRadio.picUrl}?param=600y600`" />
+            <img v-lazy="`${djRadio.picUrl}?param=600y600`" alt="" />
           </div>
           <div class="info">
             <div class="name">

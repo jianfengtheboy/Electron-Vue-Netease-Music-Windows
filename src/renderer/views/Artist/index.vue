@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:03:59
+ * @LastEditTime: 2020-06-15 22:02:20
  * @Description: 👩‍🎤歌手👨‍🎤
  -->
 <template>
@@ -16,7 +16,7 @@
         <router-link tag="li" to="/artist-top" class="artist">
           <figure class="figure">
             <div class="img-box">
-              <img src="./../../assets/images/artist_rank.png" class="top-img" width="184" />
+              <img src="./../../assets/images/artist_rank.png" class="top-img" width="184" alt="" />
             </div>
             <figcaption class="figcaption">歌手排行榜</figcaption>
           </figure>

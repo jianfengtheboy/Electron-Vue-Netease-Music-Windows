@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:19:40
+ * @LastEditTime: 2020-06-15 22:02:11
  * @Description: 👩‍🎤歌手排行榜👨‍🎤
  -->
 <template>
@@ -12,7 +12,7 @@
       <li v-for="(artist, index) in artists" :key="index" >
         <router-link :to="`/artist/${artist.id}`" class="artist">
           <div class="index">{{ index + 1 }}</div>
-          <img v-lazy="`${artist.picUrl}?param=200y200`" class="avatar">
+          <img v-lazy="`${artist.picUrl}?param=200y200`" class="avatar" alt="">
           <div class="name">{{ artist.name }}</div>
           <div class="hot">
             <a-progress

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-05 23:39:24
+ * @LastEditTime: 2020-06-15 22:09:02
  * @Description: 正在下载
  -->
 <template>
@@ -43,9 +43,8 @@
 
 <script>
 import fs from 'fs'
-import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import { shell, remote, ipcRenderer } from 'electron'
-import { uniq } from '@/utils/calculate'
+import { mapState, mapGetters } from 'vuex'
+import { shell, ipcRenderer } from 'electron'
 import TrackList from '@/components/Common/track-list/index.js'
 
 const columns = [

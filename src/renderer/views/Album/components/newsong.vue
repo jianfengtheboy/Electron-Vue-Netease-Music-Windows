@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 12:03:01
+ * @LastEditTime: 2020-06-15 22:00:51
  * @Description: 新歌速递
  -->
 <template>
@@ -32,7 +32,7 @@
         <a-spin v-if="loading" />
         <track-list :columns="columns" :tracks="songs" :isShowHead="false" :isShowActions="false" @dblclick="play">
           <template slot="name" slot-scope="{ row }">
-            <img v-lazy="`${row.avatar}?param=160y160`" class="avatar" />
+            <img v-lazy="`${row.avatar}?param=160y160`" class="avatar" alt="" />
             <span>{{ row.name }}</span>
           </template>
         </track-list>

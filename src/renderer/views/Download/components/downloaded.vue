@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-06 00:07:35
+ * @LastEditTime: 2020-06-15 22:08:40
  * @Description: 已下载
  -->
 <template>
@@ -41,12 +41,11 @@
 <script>
 import fs from 'fs'
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import { shell, remote, ipcRenderer } from 'electron'
-import { uniq } from '@/utils/calculate'
+import { shell } from 'electron'
 import TrackList from '@/components/Common/track-list/index.js'
 import Loading from '@/components/Common/loading'
 import moment from 'moment'
-import { getUrl, generateName } from '@/utils/song'
+import { generateName } from '@/utils/song'
 
 const columns = [
   {

@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:44:05
+ * @LastEditTime: 2020-06-15 22:02:29
  * @Description: 👩‍🎤详情👨‍🎤
  -->
 <template>
@@ -27,6 +27,7 @@
             :key="artist.id"
             slot="avatar"
             class="avatar"
+            alt=""
           >
         </a-list-item-meta>
         <div class="action">

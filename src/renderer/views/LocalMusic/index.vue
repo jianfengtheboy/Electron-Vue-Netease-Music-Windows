@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-05 23:02:30
+ * @LastEditTime: 2020-06-15 22:12:47
  * @Description: 本地音乐
  -->
 <template>
@@ -38,7 +38,7 @@
 
 <script>
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import { shell, remote, ipcRenderer } from 'electron'
+import { remote, ipcRenderer } from 'electron'
 import { uniq } from '@/utils/calculate'
 import TrackList from '@/components/Common/track-list/index.js'
 import Loading from '@/components/Common/loading'

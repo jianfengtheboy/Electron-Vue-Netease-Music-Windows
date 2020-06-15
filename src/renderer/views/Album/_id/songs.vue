@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 18:42:45
+ * @LastEditTime: 2020-06-15 22:01:15
  * @Description: 歌曲列表
  -->
 <template>
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { getSongUrl, getLyric } from '@/api/song'
 import TrackList from '@/components/Common/track-list/index.js'
 export default {
   name: 'album_id_songs',

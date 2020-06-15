@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:38:54
+ * @LastEditTime: 2020-06-15 22:06:38
  * @Description: 电台详情
  -->
 <template>
@@ -54,6 +54,7 @@
             height="200"
             v-lazy="`${dj.picUrl}?param=800y800`"
             :key="dj.id"
+            alt=""
           />
         </a-list-item-meta>
       </a-list-item>
@@ -70,8 +71,6 @@ import { mapGetters } from 'vuex'
 import TabBar from '@/components/Common/tabBar'
 import Loading from '@/components/Common/loading'
 import { getDjDetail } from '@/api/dj'
-import { normalSong } from '@/utils/song'
-import { uniqueData } from '@/utils/assist'
 
 export default {
   name: 'dj_id',

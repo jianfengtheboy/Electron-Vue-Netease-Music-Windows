@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 20:43:36
+ * @LastEditTime: 2020-06-15 22:01:35
  * @Description: 专辑详情
  -->
 <template>
@@ -48,7 +48,7 @@
             <div>简介：{{ album.description }}</div>
           </div>
           <div class="album-avatar" slot="avatar">
-            <img width="200" height="200" v-lazy="`${album.picUrl}?param=800y800`" :key="album.id" />
+            <img width="200" height="200" v-lazy="`${album.picUrl}?param=800y800`" :key="album.id" alt="" />
           </div>
         </a-list-item-meta>
       </a-list-item>

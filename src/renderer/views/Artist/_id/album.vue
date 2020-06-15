@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-24 21:50:34
+ * @LastEditTime: 2020-06-15 22:02:51
  * @Description: 💽专辑💽
  -->
 <template>
@@ -22,7 +22,6 @@
 <script>
 import albumItem from '@/components/Common/album-item'
 import { getArtistAlbum } from '@/api/artist'
-import { normalSong } from '@/utils/song'
 
 export default {
   name: 'artist-id-album',

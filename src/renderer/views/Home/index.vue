@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-25 11:23:55
+ * @LastEditTime: 2020-06-15 22:09:45
  * @Description: 发现音乐
  -->
 <template>
@@ -193,8 +193,8 @@ export default {
     dragenter (nav) {
       this.newNav = nav
       if ( this.oldNav.name !== this.newNav.name ) {
-        let oldIndex = this.navs.findIndex(nav => nav.name == this.oldNav.name)
-        let newIndex = this.navs.findIndex(nav => nav.name == this.newNav.name)
+        let oldIndex = this.navs.findIndex(v => v.name == this.oldNav.name)
+        let newIndex = this.navs.findIndex(v => v.name == this.newNav.name)
         let newItems = [ ...this.navs ]
         // 删除老的节点
         newItems.splice(oldIndex, 1)
