@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-15 22:44:55
+ * @LastEditTime: 2020-06-15 22:45:54
  * @Description: 离线
  -->
 <template>
@@ -15,6 +15,7 @@
 
 <script>
 import ZIcon from '@/components/ZIcon'
+
 export default {
   data () {
     return {}

@@ -3,21 +3,79 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:50:11
- * @Description:
+ * @LastEditTime: 2020-06-15 23:36:30
+ * @Description: 搜索--主播电台
  -->
 <template>
-  <div>
-
+  <div class="search-dj">
+    <a-spin :spinning="spinning">
+      <a-row
+        type="flex"
+        align="middle"
+        v-for="djRadio in djRadios"
+        :key="djRadio.id"
+      >
+        <a-col :span="20">
+          <router-link :to="`/dj/${djRadio.id}`" class="dj">
+            <img v-lazy="`${djRadio.picUrl}?param=200y200`" alt="">
+            <span>{{djRadio.name}}</span>
+          </router-link>
+        </a-col>
+        <a-col :span="4">
+          by <router-link :to="`/user?id=${djRadio.dj.userId}`">{{djRadio.dj.nickname}}</router-link>
+        </a-col>
+      </a-row>
+    </a-spin>
+    <slot :total="result.djRadiosCount"></slot>
   </div>
 </template>
 
 <script>
-export default {
+import searchMixin from '@/mixins/Search'
+import Artists from '@/components/Common/artists'
 
+export default {
+  mixins: [
+    searchMixin
+  ],
+  data () {
+    return {
+      djRadios: []
+    }
+  },
+  components: {
+    Artists
+  },
+  methods: {
+    normalData () {
+      this.djRadios = this.result.djRadios
+      this.spinning = false
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.search-dj .ant-row-flex {
+  font-size: 13px;
+  &:nth-child(even) {
+    background: #eee;
+  }
+  &:hover {
+    background: #ddd;
+  }
+}
+.dj {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+  color: #333;
+  img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+}
 </style>
