@@ -3,21 +3,41 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:47:28
- * @Description:
+ * @LastEditTime: 2020-06-15 22:44:55
+ * @Description: 离线
  -->
 <template>
-  <div>
-
+  <div class="offline">
+    <z-icon type="lixian" class="icon" />
+    <div class="text">请检查网络连接</div>
   </div>
 </template>
 
 <script>
+import ZIcon from '@/components/ZIcon'
 export default {
-
+  data () {
+    return {}
+  },
+  components: {
+    ZIcon
+  }
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.offline {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .icon {
+    font-size: 200px;
+    color: #999;
+  }
+  .text {
+    margin-top: 10px;
+  }
+}
 </style>
