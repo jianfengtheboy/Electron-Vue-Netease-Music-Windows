@@ -3,13 +3,13 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-09 22:15:23
- * @LastEditTime: 2020-04-25 11:22:51
+ * @LastEditTime: 2020-06-17 00:04:52
  * @Description: HomeLayout
  -->
 <template>
   <section class="page-layout">
     <header class="sun-header">
-      <nav>
+      <nav class="sun-nav">
         <router-link :to="item.href" v-for="(item, index) in topMenus" :key="index">{{item.title}}</router-link>
       </nav>
     </header>
@@ -68,9 +68,15 @@ export default {
   margin: auto;
 }
 .sun-header {
-  margin: 0 30px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
   border-bottom: 1px solid #e3e2e2;
   text-align: center;
+  background: #f5f5f7;
+  .sun-nav {
+    margin: 0 30px;
+  }
   a {
     display: inline-block;
     margin: 0 15px;

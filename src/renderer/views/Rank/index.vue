@@ -3,7 +3,7 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-06-14 22:12:56
+ * @LastEditTime: 2020-06-16 23:55:44
  * @Description: 排行榜
  -->
 <template>
@@ -226,6 +226,7 @@ export default {
     .list {
       border: 1px solid #e8e8e8;
       border-radius: 6px;
+      height: 477px;
       overflow: hidden;
       .title {
         position: relative;
