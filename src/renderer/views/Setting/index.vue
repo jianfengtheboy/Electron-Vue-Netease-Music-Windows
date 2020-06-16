@@ -3,21 +3,28 @@
  * @LastEditors: SunJianFeng
  * @Email: jianfengtheboy@163.com
  * @Date: 2020-04-05 16:01:45
- * @LastEditTime: 2020-04-18 22:51:58
- * @Description:
+ * @LastEditTime: 2020-06-16 23:00:15
+ * @Description: 设置
  -->
 <template>
-  <div>
-
+  <div class="setting">
+    <setting-download-folder />
+    <setting-version />
   </div>
 </template>
 
 <script>
-export default {
+import SettingDownloadFolder from './components/SettingDownloadFolder'
+import SettingVersion from './components/SettingVersion'
 
+export default {
+  name: 'setting',
+  data () {
+    return {}
+  },
+  components: {
+    SettingDownloadFolder,
+    SettingVersion
+  }
 }
 </script>
-
-<style>
-
-</style>
